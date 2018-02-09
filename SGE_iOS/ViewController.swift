@@ -10,9 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var ControlNoText: UITextField!
+    @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var panel: UIView!
+    @IBOutlet weak var TNImage: UIImageView!
+    @IBOutlet weak var ITMImage: UIImageView!
+    
+    @IBAction func logInBtn(_ sender: Any) {
+        var access:Bool = false
+        //TODO acceso al usuario
+        access = true
+        if(access){
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "wallView") as! Wall
+            self.present(newViewController, animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        logInButton.layer.cornerRadius = 5
+        panel.layer.cornerRadius = 5
+        TNImage.image = UIImage(named:"tnm")
+        ITMImage.image = UIImage(named:"logo_it")
     }
 
     override func didReceiveMemoryWarning() {
