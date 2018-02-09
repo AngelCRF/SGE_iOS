@@ -9,16 +9,21 @@
 import UIKit
 
 class SlideBar: UIViewController {
-
-    @IBOutlet weak var menuView: UIView!
-    @IBOutlet weak var leadingConst: NSLayoutConstraint!
-    var menu:Bool = false
-    @IBOutlet weak var slideView: UIView!
     
+    var menu:Bool = false
+    
+    @IBOutlet weak var slideBarView: UIView!
+    
+    @IBOutlet weak var leadingConst: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuView.layer.shadowOpacity = 1
-        menuView.layer.shadowRadius = 6
+        slideBarView.layer.shadowOpacity = 1
+        slideBarView.layer.shadowRadius = 6
+    }
+    
+    func colorWithAlphaComponent(alpha: CGFloat) -> UIColor{
+        let newColor = UIColor.init(red: 0.5, green: 0.8, blue: 1.0, alpha: alpha)
+        return newColor
     }
     
     @IBAction func showMenu(_ sender: Any) {
