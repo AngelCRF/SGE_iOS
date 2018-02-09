@@ -23,10 +23,11 @@ class ViewController: UIViewController {
         access = true
         if(access){
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "wallView") as! Wall
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
             self.present(newViewController, animated: true, completion: nil)
         }
     }
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
