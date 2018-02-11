@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         access = true
         if(access){
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "RevealViewController") as! SWRevealViewController
             self.present(newViewController, animated: true, completion: nil)
         }
     }
