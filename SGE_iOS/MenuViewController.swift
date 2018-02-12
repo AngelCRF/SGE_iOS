@@ -10,6 +10,7 @@ import UIKit
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imgProfile: UIImageView!
     var menuNameArr:Array = [String]()
     var iconeImage:Array = [UIImage]()
@@ -17,6 +18,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.tableFooterView = UIView()
         menuNameArr = ["Mis Grupos", "Muro", "Chat"]
         iconeImage  = [UIImage(named:"post")!, UIImage(named:"group")!, UIImage(named:"group")!]
         
@@ -26,6 +28,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         //imgProfile.layer.cornerRadius = 50
         imgProfile.layer.masksToBounds = false
         imgProfile.clipsToBounds = true
+        
         
     }
 
