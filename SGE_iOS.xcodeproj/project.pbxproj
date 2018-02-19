@@ -64,6 +64,8 @@
 		8C37EBE320279028009427F7 /* SGE_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E271A030202FDE9300E554CF /* SWRevealViewController.h */,
+				E271A031202FDE9300E554CF /* SWRevealViewController.m */,
 				8C37EBE420279029009427F7 /* AppDelegate.swift */,
 				8C37EBE820279029009427F7 /* Main.storyboard */,
 				8C37EBE620279029009427F7 /* ViewController.swift */,
@@ -111,6 +113,7 @@
 				TargetAttributes = {
 					8C37EBE020279028009427F7 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -294,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U4SYF6667X;
 				INFOPLIST_FILE = SGE_iOS/Info.plist;
@@ -301,6 +305,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = carlosvillanueva;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SGE_iOS/SGE_iOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -310,6 +316,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U4SYF6667X;
 				INFOPLIST_FILE = SGE_iOS/Info.plist;
@@ -317,6 +324,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = carlosvillanueva;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SGE_iOS/SGE_iOS-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
