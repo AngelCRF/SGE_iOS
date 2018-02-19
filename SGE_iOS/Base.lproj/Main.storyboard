@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -162,7 +161,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxl-UT-Pki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="258" y="68"/>
+            <point key="canvasLocation" x="220" y="43"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="gEQ-IJ-MJ7">
@@ -353,7 +352,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="vNO-JL-RoQ">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="Alg-dq-fM9"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Alg-dq-fM9">
+                            <connections>
+                                <action selector="AddPostButton:" destination="FX0-1V-bk9" id="2Cm-29-CRT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
@@ -361,6 +364,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maC-1B-dTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2030" y="-1262"/>
+        </scene>
+        <!--createPost-->
+        <scene sceneID="skE-tG-jgG">
+            <objects>
+                <viewController storyboardIdentifier="createPostView" title="createPost" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pVk-Mv-lLc" customClass="CreatePostViewController" customModule="SGE_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zfm-j7-eHO"/>
+                        <viewControllerLayoutGuide type="bottom" id="aHq-sB-I3b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hk1-MN-nPY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_user" translatesAutoresizingMaskIntoConstraints="NO" id="R4E-IT-BGe">
+                                <rect key="frame" x="16" y="97" width="101" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3m-kE-vVR">
+                                <rect key="frame" x="125" y="97" width="225" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="What's on your mind?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AWm-uY-JzF">
+                                <rect key="frame" x="16" y="206" width="343" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                            </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KbB-Oa-yG6">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="organize" id="cum-4B-6km">
+                                        <connections>
+                                            <action selector="importImageFromLibrary:" destination="pVk-Mv-lLc" id="IGc-BQ-Jlv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="E5g-4g-8KY"/>
+                                    <barButtonItem systemItem="camera" id="mh8-z1-Xcx">
+                                        <connections>
+                                            <action selector="importImageFromCamera:" destination="pVk-Mv-lLc" id="ays-CF-jhc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VSe-Aw-QH2">
+                                <rect key="frame" x="66" y="336" width="242" height="227"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KbB-Oa-yG6" firstAttribute="leading" secondItem="hk1-MN-nPY" secondAttribute="leading" id="RSL-EE-4ax"/>
+                            <constraint firstItem="aHq-sB-I3b" firstAttribute="top" secondItem="KbB-Oa-yG6" secondAttribute="bottom" id="e9D-ey-NBY"/>
+                            <constraint firstAttribute="trailing" secondItem="KbB-Oa-yG6" secondAttribute="trailing" id="iuh-l4-DRW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="Npn-gr-LMi">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="R8h-co-oHF"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="photoImageView" destination="VSe-Aw-QH2" id="KFg-6A-RTP"/>
+                        <outlet property="postTextView" destination="AWm-uY-JzF" id="7az-cQ-98Y"/>
+                        <outlet property="toolBarBottomConst" destination="e9D-ey-NBY" id="CYl-F5-UVX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u4b-99-x27" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3688.8000000000002" y="-1445.1274362818592"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="YCp-J5-GyI">
