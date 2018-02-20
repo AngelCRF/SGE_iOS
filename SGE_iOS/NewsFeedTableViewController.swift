@@ -15,8 +15,18 @@ class NewsfeedTableViewController : UITableViewController
     var searchController: UISearchController!
     var posts: [Post]?
     
+    @IBAction func AddPostButton(_ sender: UIBarButtonItem) {
+        let createPost = self.storyboard?.instantiateViewController(withIdentifier: "createPostView")
+        self.navigationController?.pushViewController(createPost!, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setupSearchController()
         self.fetchPosts()
         tableView.separatorStyle = .none

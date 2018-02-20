@@ -16,6 +16,7 @@
 		8CC693F520314AE20049FFA5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F420314AE20049FFA5 /* Post.swift */; };
 		8CC693F720314D540049FFA5 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */; };
 		8CC80F72202FB8AF001081D4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC80F71202FB8AF001081D4 /* PostCell.swift */; };
+		E29CFBDF203941C90009496E /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29CFBDE203941C90009496E /* CreatePostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8CC693F420314AE20049FFA5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
 		8CC80F71202FB8AF001081D4 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		E29CFBDE203941C90009496E /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,8 @@
 		8C37EBE320279028009427F7 /* SGE_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E271A030202FDE9300E554CF /* SWRevealViewController.h */,
+				E271A031202FDE9300E554CF /* SWRevealViewController.m */,
 				8C37EBE420279029009427F7 /* AppDelegate.swift */,
 				8C37EBE820279029009427F7 /* Main.storyboard */,
 				8C37EBE620279029009427F7 /* LoginViewController.swift */,
@@ -72,6 +76,7 @@
 				8C37EBED20279029009427F7 /* LaunchScreen.storyboard */,
 				8C37EBF020279029009427F7 /* Info.plist */,
 				8C8225DB202F8F4400A5AD89 /* JSON */,
+				E29CFBDE203941C90009496E /* CreatePostViewController.swift */,
 			);
 			path = SGE_iOS;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 				TargetAttributes = {
 					8C37EBE020279028009427F7 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -153,6 +159,7 @@
 				8C37EBE520279029009427F7 /* AppDelegate.swift in Sources */,
 				8CC80F72202FB8AF001081D4 /* PostCell.swift in Sources */,
 				8CC693F720314D540049FFA5 /* NewsFeedTableViewController.swift in Sources */,
+				E29CFBDF203941C90009496E /* CreatePostViewController.swift in Sources */,
 				8CC693F520314AE20049FFA5 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,12 +297,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T8FJME4G86;
+				DEVELOPMENT_TEAM = U4SYF6667X;
 				INFOPLIST_FILE = SGE_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "keam.SGE-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = carlosvillanueva;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SGE_iOS/SGE_iOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -305,12 +316,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T8FJME4G86;
+				DEVELOPMENT_TEAM = U4SYF6667X;
 				INFOPLIST_FILE = SGE_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "keam.SGE-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = carlosvillanueva;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SGE_iOS/SGE_iOS-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
