@@ -9,19 +9,17 @@
 import Foundation
 import UIKit
 
-struct Post
-{
+struct Post {
     var createdBy: User
     var timeAgo: String?
     var caption: String?
     var image: UIImage?
     var numberOfComments: Int?
     
-    static func fetchPosts() -> [Post]
-    {
+    static func fetchPosts() -> [Post] {
         var posts = [Post]()
         let duc = User(username: "Kevin Angel", profileImage: UIImage(named: "icon_user"))
-        let post1 = Post(createdBy: duc, timeAgo: "1 hr", caption: "Wise words from Will Smith: The only thing that I see that is distinctly different from me is: I'm not afraid to die on a treadmill. I will not be outworked, period. You might have more talent than me, you might be smarter than me, you might be sexier than me. You might be all of those things. You got it on me in nine categories. But if we get on the treadmill together, there's two things. You're getting off first, or I'm going to die. It's really that simple. Love that. I wish that you'll embrace this mindset in everything that you do. Tonight, when you think about 2017, don't set resolutions but set goals. Trust in your abilities to figure things out. No matter how small you start, start something that matters. With enough time, focus, effort, even resources and mentorship, you will develop new skills and achieve your goals.", image: UIImage(named: "icon_user"), numberOfComments: 32)
+        let post1 = Post(createdBy: duc, timeAgo: "1 hr", caption: "Wise words from Will Smith: The only thing that I see that is distinctly different from me is: I'm not afraid to die on a treadmill. I will not be outworked, period. You might have more talent than me, you might be smarter than me, you might be sexier than me. You might be all of those things. You got it on me in nine categories. But if we get on the treadmill together, there's two things. You're getting off first, or I'm going to die. It's really that simple. Love that. I wish that you'll embrace this mindset in everything that you do. Tonight, when you think about 2017, don't set resolutions but set goals. Trust in your abilities to figure things out. No matter how small you start, start something that matters. With enough time, focus, effort, even resources and mentorship, you will develop new skills and achieve your goals.", image: UIImage(named: "logo_it"), numberOfComments: 32)
         let post2 = Post(createdBy: duc, timeAgo: "3 hrs", caption: "When you work on any thing that matters, it's ok to worry, fear, and be uncomfortable. Just never give up!", image: UIImage(named: "icon_user"), numberOfComments: 12)
         let post3 = Post(createdBy: duc, timeAgo: "5 hrs", caption: "New iOS tutorial is up for developers out in the world: JoinDuc.com/iosapp-fb", image: UIImage(named: "icon_user"), numberOfComments: 92)
         let brendon = User(username: "ITM", profileImage: UIImage(named: "logo_it"))
@@ -38,8 +36,7 @@ struct Post
     }
 }
 
-struct User
-{
+struct User {
     var username: String?
     var profileImage: UIImage?
 }

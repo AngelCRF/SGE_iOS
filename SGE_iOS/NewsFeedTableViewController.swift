@@ -21,20 +21,18 @@ class NewsfeedTableViewController : UITableViewController
         self.fetchPosts()
         tableView.separatorStyle = .none
         // dynamic table view cell height
-        //tableView.estimatedRowHeight = 100.0
-        //tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.rowHeight = 488.0
         tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
+        //tableView.rowHeight = 488.0
+        //tableView.estimatedRowHeight = tableView.rowHeight
     }
     
-    func fetchPosts()
-    {
+    func fetchPosts() {
         self.posts = Post.fetchPosts()
         tableView.reloadData()
     }
     
-    func setupSearchController()
-    {
+    func setupSearchController() {
         searchController = UISearchController(searchResultsController: nil)
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = true
@@ -42,10 +40,16 @@ class NewsfeedTableViewController : UITableViewController
         navigationItem.titleView = searchController.searchBar
         definesPresentationContext = true
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn");
+        if(!isUserLoggedIn) {
+            self.performSegue(withIdentifier: "loginViewSegue", sender: self)
+        }
+    }
 }
 
-extension NewsfeedTableViewController
-{
+extension NewsfeedTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let posts = posts {
             return posts.count

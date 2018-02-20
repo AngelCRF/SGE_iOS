@@ -18,8 +18,6 @@ class PostCell : UITableViewCell {
     @IBOutlet weak var UserNameLabel: UILabel!
     @IBOutlet weak var ProfileImageView: UIImageView!
     @IBOutlet weak var NCommentsLabel: UILabel!
-    @IBOutlet weak var ShowButton: UIButton!
-    
     var post : Post!{
         didSet{
             self.updateUI()
@@ -32,7 +30,13 @@ class PostCell : UITableViewCell {
         UserNameLabel.text = post.createdBy.username
         TimeLabel.text = post.timeAgo
         PostLabel.text = post.caption
-        PostImageImageView.image = post.image
+        if (post.image != nil){
+            PostImageImageView.image = post.image
+            PostImageImageView.frame.size.height = 256.0
+        } else {
+            PostImageImageView.image = nil
+            PostImageImageView.frame.size.height = 1.0
+        }
         NCommentsLabel.text = "\(post.numberOfComments!) Comments"
     }
 }

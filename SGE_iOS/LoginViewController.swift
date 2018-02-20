@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var ControlNoText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
@@ -18,14 +18,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var ITMImage: UIImageView!
     
     @IBAction func logInBtn(_ sender: Any) {
-        var access:Bool = false
-        //TODO acceso al usuario
-        access = true
-        if(access){
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
-            self.present(newViewController, animated: true, completion: nil)
+        let userNoControl = ControlNoText.text;
+        let userPassword = passwordText.text;
+        
+        if("13121005" == userNoControl){
+            if("13121005" == userPassword){
+                // Login is successfull
+                UserDefaults.standard.set(true,forKey:"isUserLoggedIn");
+                UserDefaults.standard.synchronize();
+                self.dismiss(animated: true, completion:nil);
+            }
         }
+        
+        //var access:Bool = false
+        //TODO acceso al usuario
+        //if(access){
+            // let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+           //  let newViewController = storyBoard.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
+          //  self.present(newViewController, animated: true, completion: nil)
+       // }
     }
  
     
