@@ -6,6 +6,7 @@
 //  Copyright © 2018 KEAM. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class LoginViewController: UIViewController {
@@ -13,7 +14,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var ControlNoText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var logInButton: UIButton!
-    @IBOutlet weak var panel: UIView!
     @IBOutlet weak var TNImage: UIImageView!
     @IBOutlet weak var ITMImage: UIImageView!
     
@@ -42,8 +42,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        logInButton.layer.cornerRadius = 5
-        panel.layer.cornerRadius = 5
+        //logInButton.layer.cornerRadius = 5
+        //panel.layer.cornerRadius = 5
         TNImage.image = UIImage(named:"tnm")
         ITMImage.image = UIImage(named:"logo_it")
     }

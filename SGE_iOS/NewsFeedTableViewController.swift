@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-
-class NewsfeedTableViewController : UITableViewController
-{
+class NewsfeedTableViewController : UITableViewController {
     var searchController: UISearchController!
     var posts: [Post]?
     
@@ -22,6 +20,10 @@ class NewsfeedTableViewController : UITableViewController
     
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn");
+        if(!isUserLoggedIn) {
+            self.performSegue(withIdentifier: "loginViewSegue", sender: self)
+        }
     }
     
     override func viewDidLoad() {
@@ -51,12 +53,6 @@ class NewsfeedTableViewController : UITableViewController
         definesPresentationContext = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn");
-        if(!isUserLoggedIn) {
-            self.performSegue(withIdentifier: "loginViewSegue", sender: self)
-        }
-    }
 }
 
 extension NewsfeedTableViewController {
