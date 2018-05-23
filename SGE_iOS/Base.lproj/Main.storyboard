@@ -135,8 +135,30 @@
                         <sections>
                             <tableViewSection headerTitle="Sesión" id="Uq2-zs-ZaK">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="48" id="VPo-rT-819">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="48"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hsc-k3-SAv">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hsc-k3-SAv" id="a2n-xc-paf">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEF-xw-Cbz">
+                                                    <rect key="frame" x="53" y="6" width="92" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Horario"/>
+                                                    <connections>
+                                                        <action selector="ScheduleButton:" destination="Fmz-uV-Sls" eventType="touchUpInside" id="z2A-k9-Qlr"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fHs-TL-6P9">
+                                                    <rect key="frame" x="16" y="6" width="29" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="48" id="VPo-rT-819" customClass="AccountOptionTableViewCell" customModule="SGE_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VPo-rT-819" id="NGs-HU-lwZ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="47.5"/>
@@ -155,6 +177,7 @@
                                                     <state key="normal" title="Cerrar Sesión"/>
                                                     <connections>
                                                         <action selector="CerrarButtonTapped:" destination="Fmz-uV-Sls" eventType="touchUpInside" id="aHk-LN-Mbo"/>
+                                                        <action selector="logOutButton:" destination="Fmz-uV-Sls" eventType="touchUpInside" id="KYm-jm-kBS"/>
                                                         <segue destination="FX0-1V-bk9" kind="show" identifier="logoutSegue" id="Dsa-gs-566"/>
                                                     </connections>
                                                 </button>
@@ -175,10 +198,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cuenta" id="5b3-J0-arN"/>
+                    <connections>
+                        <segue destination="RE2-v4-D02" kind="show" identifier="scheduleSegue" id="gfD-yw-7g7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1YN-f8-o5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2180" y="43"/>
+            <point key="canvasLocation" x="2180" y="42.728635682158924"/>
         </scene>
         <!--Cuenta-->
         <scene sceneID="sDx-yh-uY1">
@@ -460,6 +486,53 @@
             </objects>
             <point key="canvasLocation" x="4022" y="43"/>
         </scene>
+        <!--Schedule View Controller-->
+        <scene sceneID="1Z2-Z4-SE1">
+            <objects>
+                <viewController id="RE2-v4-D02" customClass="ScheduleViewController" customModule="SGE_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gaV-7t-hya"/>
+                        <viewControllerLayoutGuide type="bottom" id="DkI-UJ-3sG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UQm-On-Hvd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qAV-cY-vL1">
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" id="HDI-I7-wQJ">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HDI-I7-wQJ" id="qgc-7I-Ash">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="RE2-v4-D02" id="SE7-7q-yzG"/>
+                                    <outlet property="delegate" destination="RE2-v4-D02" id="oZA-DC-WJz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DkI-UJ-3sG" firstAttribute="top" secondItem="qAV-cY-vL1" secondAttribute="bottom" id="8NI-Kp-WRW"/>
+                            <constraint firstItem="qAV-cY-vL1" firstAttribute="leading" secondItem="UQm-On-Hvd" secondAttribute="leadingMargin" id="Xta-qX-Smk"/>
+                            <constraint firstItem="qAV-cY-vL1" firstAttribute="top" secondItem="gaV-7t-hya" secondAttribute="bottom" id="jkL-Ro-V7G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qAV-cY-vL1" secondAttribute="trailing" id="mhF-T6-IA9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="qAV-cY-vL1" id="5xU-22-hz9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EbN-ht-2vJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2180" y="852"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="YCp-J5-GyI">
             <objects>
@@ -487,7 +560,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwO-qE-1fZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2180" y="866"/>
+            <point key="canvasLocation" x="1222" y="853"/>
         </scene>
         <!--Grupos-->
         <scene sceneID="brD-Id-FDw">
@@ -505,7 +578,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkD-me-z92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1268" y="866"/>
+            <point key="canvasLocation" x="220" y="842"/>
         </scene>
         <!--Noticias-->
         <scene sceneID="hV2-Jp-D2V">

@@ -15,6 +15,10 @@ class AccountViewController : UITableViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func ScheduleButton(_ sender: Any) {
+        performSegue(withIdentifier: "scheduleSegue", sender: self)
+    }
+    
     @IBAction func CerrarButtonTapped(_ sender: Any) {
         UserDefaults.standard.set(false,forKey:"isUserLoggedIn");
         UserDefaults.standard.synchronize();
