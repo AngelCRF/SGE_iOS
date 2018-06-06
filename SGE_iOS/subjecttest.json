@@ -1,0 +1,33 @@
+ [
+  {
+  "name": "calcInt",
+  "schedule": [
+               "monday 7:00 am",
+               "tuesday 7:00 am",
+               "wednesday 7:00 am",
+               "thrusday 7:00 am",
+               "friday 7:00 am"
+               ]
+  },
+  
+  {
+  "name": "fisica",
+  "schedule": [
+               "monday 8:00 am",
+               "tuesday 8:00 am",
+               "wednesday 8:00 am",
+               "thrusday 8:00 am",
+               "friday 8:00 am"
+               ]
+  },
+  {
+  "name": "AppMov",
+  "schedule": [
+               "monday 9:00 am",
+               "tuesday 9:00 am",
+               "wednesday 9:00 am",
+               "thrusday 9:00 am",
+               "friday 9:00 am"
+               ]
+  }
+  ]

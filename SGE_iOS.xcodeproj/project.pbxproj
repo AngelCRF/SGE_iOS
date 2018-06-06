@@ -17,7 +17,7 @@
 		8CC693F520314AE20049FFA5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F420314AE20049FFA5 /* Post.swift */; };
 		8CC693F720314D540049FFA5 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */; };
 		8CC80F72202FB8AF001081D4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC80F71202FB8AF001081D4 /* PostCell.swift */; };
-		E26E49AB20B5067A001BC8A6 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E49A620B5067A001BC8A6 /* Subject.swift */; };
+		E241DB7020C62481004656AC /* subjecttest.json in Resources */ = {isa = PBXBuildFile; fileRef = E241DB6F20C62481004656AC /* subjecttest.json */; };
 		E26E49AC20B5067A001BC8A6 /* AccountOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E49A720B5067A001BC8A6 /* AccountOptionTableViewCell.swift */; };
 		E26E49AF20B5067A001BC8A6 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E49AA20B5067A001BC8A6 /* ScheduleViewController.swift */; };
 		E26E49B620B507BB001BC8A6 /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E49B320B507BB001BC8A6 /* ExpandableHeaderView.swift */; };
@@ -39,7 +39,7 @@
 		8CC693F420314AE20049FFA5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
 		8CC80F71202FB8AF001081D4 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		E26E49A620B5067A001BC8A6 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		E241DB6F20C62481004656AC /* subjecttest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = subjecttest.json; sourceTree = "<group>"; };
 		E26E49A720B5067A001BC8A6 /* AccountOptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountOptionTableViewCell.swift; sourceTree = "<group>"; };
 		E26E49AA20B5067A001BC8A6 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		E26E49B320B507BB001BC8A6 /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
@@ -80,10 +80,10 @@
 			children = (
 				8C50510A20B25A220068F0E1 /* Other */,
 				8C37EBE420279029009427F7 /* AppDelegate.swift */,
-				E26E49A620B5067A001BC8A6 /* Subject.swift */,
 				8C37EBE820279029009427F7 /* Main.storyboard */,
 				E26E49AA20B5067A001BC8A6 /* ScheduleViewController.swift */,
 				8C37EBE620279029009427F7 /* LoginViewController.swift */,
+				E241DB6F20C62481004656AC /* subjecttest.json */,
 				E26E49A720B5067A001BC8A6 /* AccountOptionTableViewCell.swift */,
 				8CC80F71202FB8AF001081D4 /* PostCell.swift */,
 				8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */,
@@ -179,6 +179,7 @@
 				8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */,
 				8C37EBEC20279029009427F7 /* Assets.xcassets in Resources */,
 				8C8225DC202F8F4400A5AD89 /* JSON in Resources */,
+				E241DB7020C62481004656AC /* subjecttest.json in Resources */,
 				8C37EBEA20279029009427F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,7 +191,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E26E49AB20B5067A001BC8A6 /* Subject.swift in Sources */,
 				E26E49B620B507BB001BC8A6 /* ExpandableHeaderView.swift in Sources */,
 				8C37EBE720279029009427F7 /* LoginViewController.swift in Sources */,
 				E26E49B820B507BB001BC8A6 /* Section.swift in Sources */,

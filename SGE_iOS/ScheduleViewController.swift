@@ -8,8 +8,27 @@
 
 import UIKit
 
-class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExpandableHeaderViewDelegate{
+struct subject: Decodable {
+    var name:String = ""
+    var schedule = [String]()
     
+    /* Not usefull with swift 4
+    enum CodingKeys : String, CodingKey {
+        case name
+        case schedule
+    }
+     */
+
+    func getScheduleDay(day:Int)->String{
+        return String(schedule[day].split(separator: " ")[1] + schedule[day].split(separator: " ")[2])
+    }
+    
+    func getName()->String{
+        return self.name
+    }
+}
+
+class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExpandableHeaderViewDelegate{
     
     func toggleSection(header: ExpandableHeaderView, section: Int) {
         sections![section].expanded = !sections![section].expanded
@@ -21,6 +40,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     var sections:[Section]?
+    var subjects: [subject]?
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -29,10 +49,27 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
     self.navigationItem.title = "Horario"
-        //creacion de materias
-        //proximo avance: guardar las materias en un arreglo de materias
-        //for i in 0..< numeroMateriasJson
-        //materias.add(materia)
+        
+        //nuevo
+        let path = Bundle.main.path(forResource: "subjecttest", ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        do{
+            let data = try Data(contentsOf: url)
+            //let myJson = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+            subjects = try JSONDecoder().decode([subject].self, from: data)
+            //print(myJson)
+        }
+        catch {
+            
+        }
+        
+        let lunes = Section(day: "lunes", subjects: daySchedule(day: 0), expanded: false )
+        let martes = Section(day: "Martes", subjects: daySchedule(day: 1), expanded: false )
+        let miercoles = Section(day: "Miércoles", subjects: daySchedule(day: 2), expanded: false )
+        sections = [lunes, martes, miercoles]
+        
+        //Viejo
+        /*
         let calculo = Subject(name:"cálculo", schedule: ["8:00 F5", "8:00 F5","8:00 F5","8:00 F5","8:00 F5"])
         let matematicas = Subject(name:"Matemáticas Dis", schedule: ["9:00 F5", "9:00 F5","9:00 F5","9:00 F5","9:00 F5"])
         //creación de secciones
@@ -45,14 +82,18 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         let miercoles = Section(day: "Miércoles", subjects: [calculo.getName()+" "+calculo.getScheduleDay(day: 2),matematicas.getName()+" "+matematicas.getScheduleDay(day: 2)], expanded: false )
         
         sections = [lunes, martes, miercoles]
+        */
         
-        
+    }
+    
+    func daySchedule(day : Int) -> [String]{
+        var chain = [String]()
+        for sub in subjects!{
+            chain.append(sub.getName() + " " + sub.getScheduleDay(day: day))
+        }
+        return chain
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return (sections!.count)
     }

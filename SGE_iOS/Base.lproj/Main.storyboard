@@ -177,7 +177,6 @@
                                                     <state key="normal" title="Cerrar Sesión"/>
                                                     <connections>
                                                         <action selector="CerrarButtonTapped:" destination="Fmz-uV-Sls" eventType="touchUpInside" id="aHk-LN-Mbo"/>
-                                                        <action selector="logOutButton:" destination="Fmz-uV-Sls" eventType="touchUpInside" id="KYm-jm-kBS"/>
                                                         <segue destination="FX0-1V-bk9" kind="show" identifier="logoutSegue" id="Dsa-gs-566"/>
                                                     </connections>
                                                 </button>
@@ -499,14 +498,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qAV-cY-vL1">
-                                <rect key="frame" x="16" y="64" width="343" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" id="HDI-I7-wQJ">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HDI-I7-wQJ" id="qgc-7I-Ash">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -519,10 +518,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DkI-UJ-3sG" firstAttribute="top" secondItem="qAV-cY-vL1" secondAttribute="bottom" id="8NI-Kp-WRW"/>
-                            <constraint firstItem="qAV-cY-vL1" firstAttribute="leading" secondItem="UQm-On-Hvd" secondAttribute="leadingMargin" id="Xta-qX-Smk"/>
-                            <constraint firstItem="qAV-cY-vL1" firstAttribute="top" secondItem="gaV-7t-hya" secondAttribute="bottom" id="jkL-Ro-V7G"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qAV-cY-vL1" secondAttribute="trailing" id="mhF-T6-IA9"/>
+                            <constraint firstItem="qAV-cY-vL1" firstAttribute="bottom" secondItem="DkI-UJ-3sG" secondAttribute="top" id="8Tz-Sc-2d6"/>
+                            <constraint firstItem="qAV-cY-vL1" firstAttribute="leading" secondItem="UQm-On-Hvd" secondAttribute="leading" id="9GD-3h-HyV"/>
+                            <constraint firstAttribute="trailing" secondItem="qAV-cY-vL1" secondAttribute="trailing" id="YLn-Xb-vFq"/>
+                            <constraint firstItem="qAV-cY-vL1" firstAttribute="top" secondItem="gaV-7t-hya" secondAttribute="bottom" id="eJI-sC-yZU"/>
                         </constraints>
                     </view>
                     <connections>
@@ -531,7 +530,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EbN-ht-2vJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2180" y="852"/>
+            <point key="canvasLocation" x="2180" y="851.42428785607206"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="YCp-J5-GyI">
