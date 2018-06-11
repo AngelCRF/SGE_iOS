@@ -1,33 +1,36 @@
  [
   {
   "name": "Calculo Integral",
+  "professor": "Juan Perez Perez",
   "schedule": [
-               "monday 7:00 am AG5",
-               "tuesday 7:00 am AG5",
-               "wednesday 7:00 am AG5",
-               "thrusday 7:00 am AG5",
-               "friday 7:00 am AG5"
+               "monday 7:00-8:00 am AG5",
+               "tuesday 7:00-8:00 am AG5",
+               "wednesday 7:00-8:00 am AG5",
+               "thrusday 7:00-8:00 am AG5",
+               "friday 7:00-8:00 am AG5"
                ]
   },
   
   {
   "name": "Programación orientada a objetos",
+  "professor": "Juan Perez Perez",
   "schedule": [
-               "monday 8:00 am AG5",
-               "tuesday 8:00 am AG5",
-               "wednesday 8:00 am AG5",
-               "thrusday 8:00 am AG5",
-               "friday 8:00 am AG5"
+               "monday 8:00-9:00 am AG5",
+               "tuesday 8:00-9:00 am AG5",
+               "wednesday 8:00-9:00 am AG5",
+               "thrusday 8:00-9:00 am AG5",
+               "friday 8:00-9:00 am AG5"
                ]
   },
   {
   "name": "Matemáticas Discretas",
+  "professor": "Juan Perez Perez",
   "schedule": [
-               "monday 9:00 am AG5",
-               "tuesday 9:00 am AG5",
-               "wednesday 9:00 am AG5",
-               "thrusday 9:00 am AG5",
-               "friday 9:00 am AG5"
+               "monday 9:00-10:00 am AG5",
+               "tuesday 9:00-10:00 am AG5",
+               "wednesday 9:00-10:00 am AG5",
+               "thrusday 9:00-10:00 am AG5",
+               "friday 9:00-10:00 am AG5"
                ]
   }
   ]

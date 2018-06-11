@@ -10,6 +10,7 @@ import UIKit
 
 struct subject: Decodable {
     var name:String = ""
+    var professor:String = ""
     var schedule = [String]()
     
     /* Not usefull with swift 4
@@ -26,6 +27,15 @@ struct subject: Decodable {
     func getName()->String{
         return self.name
     }
+    func getProfessor()->String{
+        return self.professor
+    }
+}
+
+class subTableViewCell: UITableViewCell {
+    @IBOutlet weak var subjectLabel: UILabel!
+    @IBOutlet weak var professorLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
 }
 
 class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExpandableHeaderViewDelegate{
@@ -72,7 +82,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     func daySchedule(day : Int) -> [String]{
         var chain = [String]()
         for sub in subjects!{
-            chain.append(sub.getName() + "\n" + sub.getScheduleDay(day: day))
+            chain.append(sub.getName() + "\n" + sub.getProfessor() + "\n" + sub.getScheduleDay(day: day))
         }
         return chain
     }
@@ -91,7 +101,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(sections![indexPath.section].expanded){
-            return 44
+            return 85
         }else{
             return 0
         }
@@ -108,13 +118,16 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCell")
-        cell?.textLabel?.numberOfLines = 0;
-        cell?.textLabel?.lineBreakMode = .byWordWrapping
+        let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCell", for: indexPath) as! subTableViewCell
+        //cell?.textLabel?.numberOfLines = 0;
+        //cell?.textLabel?.lineBreakMode = .byWordWrapping
         //self.contentView.backgroundColor = UIColor(hexString: "#5c1423")
-        cell?.textLabel?.text = sections![indexPath.section].subjects[indexPath.row]
-        return cell!
+        cell.subjectLabel?.text = String (sections![indexPath.section].subjects[indexPath.row].split(separator: "\n")[0])
+        cell.professorLabel?.text = String (sections![indexPath.section].subjects[indexPath.row].split(separator: "\n")[1])
+        cell.timeLabel?.text = String (sections![indexPath.section].subjects[indexPath.row].split(separator: "\n")[2])
+        return cell
     }
+    
     
     /*
     // MARK: - Navigation
