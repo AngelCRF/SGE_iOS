@@ -13,7 +13,7 @@
   
   {
   "name": "Programación orientada a objetos",
-  "professor": "Juan Perez Perez",
+  "professor": "Pedro Sanchez Perez",
   "schedule": [
                "monday 8:00-9:00 am AG5",
                "tuesday 8:00-9:00 am AG5",
@@ -24,7 +24,7 @@
   },
   {
   "name": "Matemáticas Discretas",
-  "professor": "Juan Perez Perez",
+  "professor": "Roberto Juarez Lopez",
   "schedule": [
                "monday 9:00-10:00 am AG5",
                "tuesday 9:00-10:00 am AG5",

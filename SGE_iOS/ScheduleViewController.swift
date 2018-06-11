@@ -73,7 +73,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
             
         }
         
-        let lunes = Section(day: "lunes", subjects: daySchedule(day: 0), expanded: false )
+        let lunes = Section(day: "Lunes", subjects: daySchedule(day: 0), expanded: false )
         let martes = Section(day: "Martes", subjects: daySchedule(day: 1), expanded: false )
         let miercoles = Section(day: "Miércoles", subjects: daySchedule(day: 2), expanded: false )
         sections = [lunes, martes, miercoles]
