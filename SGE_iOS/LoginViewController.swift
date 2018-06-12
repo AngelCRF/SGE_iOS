@@ -11,32 +11,35 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var ControlNoText: UITextField!
+    @IBOutlet weak var controlNoText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var logInButton: UIButton!
-    @IBOutlet weak var TNImage: UIImageView!
-    @IBOutlet weak var ITMImage: UIImageView!
+    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBAction func logInBtn(_ sender: Any) {
         
-        let userNoControl = ControlNoText.text;
+        let userNoControl = controlNoText.text;
         let userPassword = passwordText.text;
         
         if(validateUserAndPassword(User: userNoControl!,Password: userPassword!)){
             // Login is successfull
             UserDefaults.standard.set(true,forKey:"isUserLoggedIn");
             UserDefaults.standard.synchronize();
+            errorLabel.text = ""
             self.dismiss(animated: true, completion:nil);
         } else {
-            showToast(message: "Error favor de verificar los datos")
+            errorLabel.text = "Error, favor de verificar los datos"
+            LoginViewController.shake(view: logoImage)
+            LoginViewController.shake(view: controlNoText)
+            LoginViewController.shake(view: passwordText)
+            LoginViewController.shake(view: logInButton)
         }
     }
- 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        TNImage.image = UIImage(named:"tnm")
-        ITMImage.image = UIImage(named:"logo_it")
+        logoImage.image = UIImage(named:"pony")
         logInButton.layer.cornerRadius = 5
     }
 
@@ -61,24 +64,11 @@ class LoginViewController: UIViewController {
         return flag
     }
     
-    func showToast(message : String) {
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 120, y: self.view.frame.size.height-100, width: 250, height: 35))
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        toastLabel.textColor = UIColor.white
-        toastLabel.textAlignment = .center;
-        toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10;
-        toastLabel.clipsToBounds  =  true
-        self.view.addSubview(toastLabel)
-        UIView.animate(
-            withDuration: 4.0,
-            delay: 0.1,
-            options: .curveEaseOut,
-            animations: {toastLabel.alpha = 0.0},
-            completion: {(isCompleted) in toastLabel.removeFromSuperview()}
-        )
+    static func shake(view: UIView, for duration: TimeInterval = 0.5, withTranslation translation: CGFloat = 10) {
+        let propertyAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 0.3) {
+            view.transform = CGAffineTransform(translationX: translation, y: 0)
+        }
+        propertyAnimator.addAnimations({view.transform = CGAffineTransform(translationX: 0, y: 0)}, delayFactor: 0.2)
+        propertyAnimator.startAnimation()
     }
 }
-

@@ -20,15 +20,18 @@ class NewsfeedTableViewController : UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn");
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         if(!isUserLoggedIn) {
             self.performSegue(withIdentifier: "loginViewSegue", sender: self)
         }
     }
     
     override func viewDidLoad() {
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        if(!isUserLoggedIn) {
+            self.performSegue(withIdentifier: "loginViewSegue", sender: self)
+        }
         super.viewDidLoad()
-        
         self.setupSearchController()
         self.fetchPosts()
         tableView.separatorStyle = .none
@@ -70,5 +73,3 @@ extension NewsfeedTableViewController {
         return cell
     }
 }
-
-
