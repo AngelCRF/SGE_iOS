@@ -46,6 +46,7 @@ class GroupsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let path = Bundle.main.path(forResource: "grupos", ofType: "json")
         let url = URL(fileURLWithPath: path!)
         do{
