@@ -18,19 +18,19 @@ class PostCell : UITableViewCell {
     @IBOutlet weak var UserNameLabel: UILabel!
     @IBOutlet weak var ProfileImageView: UIImageView!
     @IBOutlet weak var NCommentsLabel: UILabel!
+    
     var post : Post!{
         didSet{
             self.updateUI()
         }
     }
     
-    func updateUI()
-    {
+    func updateUI(){
         ProfileImageView.image = post.createdBy.profileImage
         UserNameLabel.text = post.createdBy.username
         TimeLabel.text = post.timeAgo
         PostLabel.text = post.caption
-        if (post.image != nil){
+        if (post.image != nil) {
             PostImageImageView.image = post.image
             PostImageImageView.frame.size.height = 256.0
         } else {

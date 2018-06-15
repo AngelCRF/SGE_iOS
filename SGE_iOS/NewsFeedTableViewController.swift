@@ -10,8 +10,25 @@ import Foundation
 import UIKit
 
 class NewsfeedTableViewController : UITableViewController {
-    var searchController: UISearchController!
     var posts: [Post]?
+    var searchBar = UISearchBar()
+    
+    @IBOutlet weak var SearchButton: UIBarButtonItem!
+    
+    @IBAction func ClickSearchButton(_ sender: Any) {
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = UIColor.white
+        searchBar.barStyle = .default
+        searchBar.tintColor = UIColor(hexString: "#dc9c03")
+        searchBar.searchBarStyle = UISearchBarStyle.minimal
+        searchBar.alpha = 0
+        searchBar.showsCancelButton = true
+        navigationItem.titleView = searchBar
+        navigationItem.setLeftBarButton(nil, animated: true)
+        UIView.animate(withDuration: 0.5, animations: { self.searchBar.alpha = 1},
+                       completion: { finished in self.searchBar.becomeFirstResponder()}
+        )
+    }
     
     @IBAction func AddPostButton(_ sender: UIBarButtonItem) {
         let createPost = self.storyboard?.instantiateViewController(withIdentifier: "createPostView")
@@ -20,7 +37,7 @@ class NewsfeedTableViewController : UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn");
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         if(!isUserLoggedIn) {
             self.performSegue(withIdentifier: "loginViewSegue", sender: self)
         }
@@ -28,15 +45,16 @@ class NewsfeedTableViewController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setupSearchController()
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        if(!isUserLoggedIn) {
+            self.performSegue(withIdentifier: "loginViewSegue", sender: self)
+        }
         self.fetchPosts()
         tableView.separatorStyle = .none
-        // dynamic table view cell height
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        //tableView.rowHeight = 488.0
-        //tableView.estimatedRowHeight = tableView.rowHeight
+        searchBar.delegate = self as? UISearchBarDelegate
+        SearchButton = navigationItem.rightBarButtonItem
     }
     
     func fetchPosts() {
@@ -44,15 +62,16 @@ class NewsfeedTableViewController : UITableViewController {
         tableView.reloadData()
     }
     
-    func setupSearchController() {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = true
-        searchController.searchBar.barStyle = .black
-        navigationItem.titleView = searchController.searchBar
-        definesPresentationContext = true
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        // Do the search stuff
     }
     
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.text = ""
+        navigationItem.titleView = nil
+        navigationItem.setLeftBarButton(SearchButton, animated: true)
+        UIView.animate(withDuration: 0.3, animations: { }, completion: { finished in })
+    }
 }
 
 extension NewsfeedTableViewController {
@@ -70,5 +89,3 @@ extension NewsfeedTableViewController {
         return cell
     }
 }
-
-

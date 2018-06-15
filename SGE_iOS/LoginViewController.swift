@@ -11,48 +11,63 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var ControlNoText: UITextField!
+    @IBOutlet weak var controlNoText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var logInButton: UIButton!
-    @IBOutlet weak var TNImage: UIImageView!
-    @IBOutlet weak var ITMImage: UIImageView!
+    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBAction func logInBtn(_ sender: Any) {
-        let userNoControl = ControlNoText.text;
-        let userPassword = passwordText.text;
         
-        if("13121005" == userNoControl){
-            if("13121005" == userPassword){
-                // Login is successfull
-                UserDefaults.standard.set(true,forKey:"isUserLoggedIn");
-                UserDefaults.standard.synchronize();
-                self.dismiss(animated: true, completion:nil);
-            }
+        let userNoControl = controlNoText.text
+        let userPassword = passwordText.text
+        
+        if(validateUserAndPassword(User: userNoControl!,Password: userPassword!)){
+            UserDefaults.standard.set(true,forKey:"isUserLoggedIn")
+            UserDefaults.standard.synchronize()
+            errorLabel.text = ""
+            self.dismiss(animated: true, completion:nil)
+        } else {
+            errorLabel.text = "Error, favor de verificar los datos"
+            LoginViewController.shake(view: logoImage)
+            LoginViewController.shake(view: controlNoText)
+            LoginViewController.shake(view: passwordText)
+            LoginViewController.shake(view: logInButton)
+            passwordText.text = ""
         }
-        
-        //var access:Bool = false
-        //TODO acceso al usuario
-        //if(access){
-            // let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-           //  let newViewController = storyBoard.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
-          //  self.present(newViewController, animated: true, completion: nil)
-       // }
     }
- 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //logInButton.layer.cornerRadius = 5
-        //panel.layer.cornerRadius = 5
-        TNImage.image = UIImage(named:"tnm")
-        ITMImage.image = UIImage(named:"logo_it")
+        logoImage.image = UIImage(named:"pony")
+        logInButton.layer.cornerRadius = 5
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
+    
+    func validateUserAndPassword(User:String, Password:String)-> Bool{
+        //Function to simulate a validation this need to change to the API validation returning a bool
+        let users: [[String]] = [["13121005", "140995"], ["14121110", "123456"], ["14121167", "123456"]]
+        var flag = false
+        for i in 1...3 {
+            if (User == users[i-1][0] && Password == users[i-1][1]){
+                flag = true
+                break
+            }
+            else {
+                flag = false
+            }
+        }
+        return flag
+    }
+    
+    static func shake(view: UIView, for duration: TimeInterval = 0.5, withTranslation translation: CGFloat = 10) {
+        let propertyAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 0.3) {
+            view.transform = CGAffineTransform(translationX: translation, y: 0)
+        }
+        propertyAnimator.addAnimations({view.transform = CGAffineTransform(translationX: 0, y: 0)}, delayFactor: 0.2)
+        propertyAnimator.startAnimation()
+    }
 }
-
