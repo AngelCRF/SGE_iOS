@@ -23,6 +23,10 @@
 		E26E49B620B507BB001BC8A6 /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E49B320B507BB001BC8A6 /* ExpandableHeaderView.swift */; };
 		E26E49B720B507BB001BC8A6 /* ScheduleTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E49B420B507BB001BC8A6 /* ScheduleTableViewHeaderFooterView.swift */; };
 		E26E49B820B507BB001BC8A6 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E49B520B507BB001BC8A6 /* Section.swift */; };
+		E27F0F3E20D3530F00B787EF /* AccoutOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F0F3D20D3530F00B787EF /* AccoutOptionsViewController.swift */; };
+		E27F0F4020D35DF300B787EF /* GroupsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F0F3F20D35DF300B787EF /* GroupsCollectionViewCell.swift */; };
+		E27F0F4420D3772600B787EF /* grupos.json in Resources */ = {isa = PBXBuildFile; fileRef = E27F0F4320D3772600B787EF /* grupos.json */; };
+		E27F0F4620D38A8300B787EF /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F0F4520D38A8300B787EF /* GroupsViewController.swift */; };
 		E29CFBDF203941C90009496E /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29CFBDE203941C90009496E /* CreatePostViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +49,10 @@
 		E26E49B320B507BB001BC8A6 /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
 		E26E49B420B507BB001BC8A6 /* ScheduleTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		E26E49B520B507BB001BC8A6 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		E27F0F3D20D3530F00B787EF /* AccoutOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccoutOptionsViewController.swift; sourceTree = "<group>"; };
+		E27F0F3F20D35DF300B787EF /* GroupsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCollectionViewCell.swift; sourceTree = "<group>"; };
+		E27F0F4320D3772600B787EF /* grupos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grupos.json; sourceTree = "<group>"; };
+		E27F0F4520D38A8300B787EF /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		E29CFBDE203941C90009496E /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +92,7 @@
 				E26E49AA20B5067A001BC8A6 /* ScheduleViewController.swift */,
 				8C37EBE620279029009427F7 /* LoginViewController.swift */,
 				E241DB6F20C62481004656AC /* subjecttest.json */,
+				E27F0F4320D3772600B787EF /* grupos.json */,
 				E26E49A720B5067A001BC8A6 /* AccountOptionTableViewCell.swift */,
 				8CC80F71202FB8AF001081D4 /* PostCell.swift */,
 				8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */,
@@ -94,6 +103,9 @@
 				8C8225DB202F8F4400A5AD89 /* JSON */,
 				E29CFBDE203941C90009496E /* CreatePostViewController.swift */,
 				8C456AC72043C36C007684F8 /* AccountViewController.swift */,
+				E27F0F3D20D3530F00B787EF /* AccoutOptionsViewController.swift */,
+				E27F0F3F20D35DF300B787EF /* GroupsCollectionViewCell.swift */,
+				E27F0F4520D38A8300B787EF /* GroupsViewController.swift */,
 			);
 			path = SGE_iOS;
 			sourceTree = "<group>";
@@ -179,6 +191,7 @@
 				8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */,
 				8C37EBEC20279029009427F7 /* Assets.xcassets in Resources */,
 				8C8225DC202F8F4400A5AD89 /* JSON in Resources */,
+				E27F0F4420D3772600B787EF /* grupos.json in Resources */,
 				E241DB7020C62481004656AC /* subjecttest.json in Resources */,
 				8C37EBEA20279029009427F7 /* Main.storyboard in Resources */,
 			);
@@ -191,10 +204,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E27F0F4020D35DF300B787EF /* GroupsCollectionViewCell.swift in Sources */,
 				E26E49B620B507BB001BC8A6 /* ExpandableHeaderView.swift in Sources */,
 				8C37EBE720279029009427F7 /* LoginViewController.swift in Sources */,
 				E26E49B820B507BB001BC8A6 /* Section.swift in Sources */,
 				8C37EBE520279029009427F7 /* AppDelegate.swift in Sources */,
+				E27F0F3E20D3530F00B787EF /* AccoutOptionsViewController.swift in Sources */,
 				8C456AC82043C36C007684F8 /* AccountViewController.swift in Sources */,
 				E26E49AC20B5067A001BC8A6 /* AccountOptionTableViewCell.swift in Sources */,
 				8CC80F72202FB8AF001081D4 /* PostCell.swift in Sources */,
@@ -203,6 +218,7 @@
 				E29CFBDF203941C90009496E /* CreatePostViewController.swift in Sources */,
 				E26E49AF20B5067A001BC8A6 /* ScheduleViewController.swift in Sources */,
 				8CC693F520314AE20049FFA5 /* Post.swift in Sources */,
+				E27F0F4620D38A8300B787EF /* GroupsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

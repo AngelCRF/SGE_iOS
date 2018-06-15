@@ -10,9 +10,10 @@ import UIKit
 
 class AccountOptionTableViewCell: UITableViewCell {
 
-    //@IBOutlet weak var view: UIView!
-    //@IBOutlet weak var cellImage: UIImageView!
-    //@IBOutlet weak var cellText: UILabel!
+    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var cellImage: UIImageView!
+    @IBOutlet weak var cellText: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

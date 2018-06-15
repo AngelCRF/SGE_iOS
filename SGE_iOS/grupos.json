@@ -1,0 +1,27 @@
+[
+  {
+    "id":11,
+    "nombre_completo_materia":"FUNDAMENTOS DE PROGRAMACION",
+    "grupo":"A"
+  },
+  {
+    "id":12,
+    "nombre_completo_materia":"TALLER DE DESARROLLO DE SOFTWARE",
+    "grupo":"A"
+  },
+  {
+     "id":13,
+     "nombre_completo_materia":"PROGRAMACION ORIENTADA A OBJETOS",
+     "grupo":"A"
+  },
+ {
+ "id":14,
+ "nombre_completo_materia":"CALCULO INTEGRAL",
+ "grupo":"A"
+ },
+ {
+ "id":15,
+ "nombre_completo_materia":"CONTABILIDAD",
+ "grupo":"A"
+ }
+]
