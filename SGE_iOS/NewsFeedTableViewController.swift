@@ -9,25 +9,15 @@
 import Foundation
 import UIKit
 
-class NewsfeedTableViewController : UITableViewController {
+class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
     var posts: [Post]?
     var searchBar = UISearchBar()
+    var SearchButtonAux = UIBarButtonItem()
     
     @IBOutlet weak var SearchButton: UIBarButtonItem!
     
     @IBAction func ClickSearchButton(_ sender: Any) {
-        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.textColor = UIColor.white
-        searchBar.barStyle = .default
-        searchBar.tintColor = UIColor(hexString: "#dc9c03")
-        searchBar.searchBarStyle = UISearchBarStyle.minimal
-        searchBar.alpha = 0
-        searchBar.showsCancelButton = true
-        navigationItem.titleView = searchBar
-        navigationItem.setLeftBarButton(nil, animated: true)
-        UIView.animate(withDuration: 0.5, animations: { self.searchBar.alpha = 1},
-                       completion: { finished in self.searchBar.becomeFirstResponder()}
-        )
+        searchBarShow()
     }
     
     @IBAction func AddPostButton(_ sender: UIBarButtonItem) {
@@ -50,10 +40,11 @@ class NewsfeedTableViewController : UITableViewController {
             self.performSegue(withIdentifier: "loginViewSegue", sender: self)
         }
         self.fetchPosts()
+        SearchButtonAux = SearchButton
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        searchBar.delegate = self as? UISearchBarDelegate
+        searchBar.delegate = self
         SearchButton = navigationItem.rightBarButtonItem
     }
     
@@ -62,15 +53,28 @@ class NewsfeedTableViewController : UITableViewController {
         tableView.reloadData()
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBarShow() {
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = UIColor.white
+        searchBar.barStyle = .default
+        searchBar.tintColor = UIColor(hexString: "#dc9c03")
+        searchBar.searchBarStyle = UISearchBarStyle.minimal
+        searchBar.alpha = 0
+        searchBar.showsCancelButton = true
+        navigationItem.titleView = searchBar
+        navigationItem.setLeftBarButton(nil, animated: true)
+        UIView.animate(withDuration: 0.5, animations: {self.searchBar.alpha = 1}, completion: {finished in self.searchBar.becomeFirstResponder()})
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // Do the search stuff
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
-        navigationItem.titleView = nil
-        navigationItem.setLeftBarButton(SearchButton, animated: true)
-        UIView.animate(withDuration: 0.3, animations: { }, completion: { finished in })
+        searchBar.endEditing(true)
+        navigationItem.setLeftBarButton(SearchButtonAux, animated: true)
+        UIView.animate(withDuration: 0.3, animations:{self.navigationItem.titleView = nil}, completion: {finished in})
     }
 }
 

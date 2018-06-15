@@ -13,6 +13,7 @@
 		8C37EBEC20279029009427F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBEB20279029009427F7 /* Assets.xcassets */; };
 		8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBED20279029009427F7 /* LaunchScreen.storyboard */; };
 		8C456AC82043C36C007684F8 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C456AC72043C36C007684F8 /* AccountViewController.swift */; };
+		8C47D76B20D4336A00117C2C /* grupos.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C47D76A20D4336A00117C2C /* grupos.json */; };
 		8C8225DC202F8F4400A5AD89 /* poststest.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C8225DB202F8F4400A5AD89 /* poststest.json */; };
 		8CC693F520314AE20049FFA5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F420314AE20049FFA5 /* Post.swift */; };
 		8CC693F720314D540049FFA5 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */; };
@@ -25,7 +26,6 @@
 		E26E49B820B507BB001BC8A6 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E49B520B507BB001BC8A6 /* Section.swift */; };
 		E27F0F3E20D3530F00B787EF /* AccoutOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F0F3D20D3530F00B787EF /* AccoutOptionsViewController.swift */; };
 		E27F0F4020D35DF300B787EF /* GroupsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F0F3F20D35DF300B787EF /* GroupsCollectionViewCell.swift */; };
-		E27F0F4420D3772600B787EF /* grupos.json in Resources */ = {isa = PBXBuildFile; fileRef = E27F0F4320D3772600B787EF /* grupos.json */; };
 		E27F0F4620D38A8300B787EF /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F0F4520D38A8300B787EF /* GroupsViewController.swift */; };
 		E29CFBDF203941C90009496E /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29CFBDE203941C90009496E /* CreatePostViewController.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +39,7 @@
 		8C37EBEE20279029009427F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C37EBF020279029009427F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C456AC72043C36C007684F8 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		8C47D76A20D4336A00117C2C /* grupos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = grupos.json; path = ../../../../../Downloads/grupos.json; sourceTree = "<group>"; };
 		8C8225DB202F8F4400A5AD89 /* poststest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = poststest.json; sourceTree = "<group>"; };
 		8CC693F420314AE20049FFA5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		E26E49B520B507BB001BC8A6 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		E27F0F3D20D3530F00B787EF /* AccoutOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccoutOptionsViewController.swift; sourceTree = "<group>"; };
 		E27F0F3F20D35DF300B787EF /* GroupsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCollectionViewCell.swift; sourceTree = "<group>"; };
-		E27F0F4320D3772600B787EF /* grupos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grupos.json; sourceTree = "<group>"; };
 		E27F0F4520D38A8300B787EF /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		E29CFBDE203941C90009496E /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,7 +92,7 @@
 				E26E49AA20B5067A001BC8A6 /* ScheduleViewController.swift */,
 				8C37EBE620279029009427F7 /* LoginViewController.swift */,
 				E241DB6F20C62481004656AC /* subjecttest.json */,
-				E27F0F4320D3772600B787EF /* grupos.json */,
+				8C47D76A20D4336A00117C2C /* grupos.json */,
 				E26E49A720B5067A001BC8A6 /* AccountOptionTableViewCell.swift */,
 				8CC80F71202FB8AF001081D4 /* PostCell.swift */,
 				8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */,
@@ -191,6 +191,7 @@
 				8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */,
 				8C37EBEC20279029009427F7 /* Assets.xcassets in Resources */,
 				8C8225DC202F8F4400A5AD89 /* poststest.json in Resources */,
+				8C47D76B20D4336A00117C2C /* grupos.json in Resources */,
 				E241DB7020C62481004656AC /* subjecttest.json in Resources */,
 				8C37EBEA20279029009427F7 /* Main.storyboard in Resources */,
 			);
