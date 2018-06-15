@@ -19,21 +19,21 @@ class LoginViewController: UIViewController {
     
     @IBAction func logInBtn(_ sender: Any) {
         
-        let userNoControl = controlNoText.text;
-        let userPassword = passwordText.text;
+        let userNoControl = controlNoText.text
+        let userPassword = passwordText.text
         
         if(validateUserAndPassword(User: userNoControl!,Password: userPassword!)){
-            // Login is successfull
-            UserDefaults.standard.set(true,forKey:"isUserLoggedIn");
-            UserDefaults.standard.synchronize();
+            UserDefaults.standard.set(true,forKey:"isUserLoggedIn")
+            UserDefaults.standard.synchronize()
             errorLabel.text = ""
-            self.dismiss(animated: true, completion:nil);
+            self.dismiss(animated: true, completion:nil)
         } else {
             errorLabel.text = "Error, favor de verificar los datos"
             LoginViewController.shake(view: logoImage)
             LoginViewController.shake(view: controlNoText)
             LoginViewController.shake(view: passwordText)
             LoginViewController.shake(view: logInButton)
+            passwordText.text = ""
         }
     }
     
@@ -45,7 +45,6 @@ class LoginViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func validateUserAndPassword(User:String, Password:String)-> Bool{

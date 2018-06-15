@@ -13,7 +13,7 @@
 		8C37EBEC20279029009427F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBEB20279029009427F7 /* Assets.xcassets */; };
 		8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBED20279029009427F7 /* LaunchScreen.storyboard */; };
 		8C456AC82043C36C007684F8 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C456AC72043C36C007684F8 /* AccountViewController.swift */; };
-		8C8225DC202F8F4400A5AD89 /* JSON in Resources */ = {isa = PBXBuildFile; fileRef = 8C8225DB202F8F4400A5AD89 /* JSON */; };
+		8C8225DC202F8F4400A5AD89 /* poststest.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C8225DB202F8F4400A5AD89 /* poststest.json */; };
 		8CC693F520314AE20049FFA5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F420314AE20049FFA5 /* Post.swift */; };
 		8CC693F720314D540049FFA5 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */; };
 		8CC80F72202FB8AF001081D4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC80F71202FB8AF001081D4 /* PostCell.swift */; };
@@ -35,7 +35,7 @@
 		8C37EBEE20279029009427F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C37EBF020279029009427F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C456AC72043C36C007684F8 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		8C8225DB202F8F4400A5AD89 /* JSON */ = {isa = PBXFileReference; lastKnownFileType = text; path = JSON; sourceTree = "<group>"; };
+		8C8225DB202F8F4400A5AD89 /* poststest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = poststest.json; sourceTree = "<group>"; };
 		8CC693F420314AE20049FFA5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
 		8CC80F71202FB8AF001081D4 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 				8C37EBEB20279029009427F7 /* Assets.xcassets */,
 				8C37EBED20279029009427F7 /* LaunchScreen.storyboard */,
 				8C37EBF020279029009427F7 /* Info.plist */,
-				8C8225DB202F8F4400A5AD89 /* JSON */,
+				8C8225DB202F8F4400A5AD89 /* poststest.json */,
 				E29CFBDE203941C90009496E /* CreatePostViewController.swift */,
 				8C456AC72043C36C007684F8 /* AccountViewController.swift */,
 			);
@@ -178,7 +178,7 @@
 			files = (
 				8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */,
 				8C37EBEC20279029009427F7 /* Assets.xcassets in Resources */,
-				8C8225DC202F8F4400A5AD89 /* JSON in Resources */,
+				8C8225DC202F8F4400A5AD89 /* poststest.json in Resources */,
 				E241DB7020C62481004656AC /* subjecttest.json in Resources */,
 				8C37EBEA20279029009427F7 /* Main.storyboard in Resources */,
 			);
@@ -348,7 +348,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5CH59YRAJZ;
 				INFOPLIST_FILE = SGE_iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Kevin-Angel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -356,7 +356,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "SGE_iOS/SGE_iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -369,14 +369,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5CH59YRAJZ;
 				INFOPLIST_FILE = SGE_iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Kevin-Angel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SGE_iOS/SGE_iOS-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
