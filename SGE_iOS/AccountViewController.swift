@@ -22,7 +22,7 @@ class AccountViewController : UITableViewController {
     @IBAction func CerrarButtonTapped(_ sender: Any) {
         UserDefaults.standard.set(false,forKey:"isUserLoggedIn");
         UserDefaults.standard.synchronize();
-        self.performSegue(withIdentifier: "logoutSegue", sender: self);
+        self.tabBarController?.selectedIndex = 0
     }
 }
 

@@ -9,9 +9,16 @@
 import Foundation
 import UIKit
 
-class NewsfeedTableViewController : UITableViewController {
-    var searchController: UISearchController!
+class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
     var posts: [Post]?
+    var searchBar = UISearchBar()
+    var SearchButtonAux = UIBarButtonItem()
+    
+    @IBOutlet weak var SearchButton: UIBarButtonItem!
+    
+    @IBAction func ClickSearchButton(_ sender: Any) {
+        searchBarShow()
+    }
     
     @IBAction func AddPostButton(_ sender: UIBarButtonItem) {
         let createPost = self.storyboard?.instantiateViewController(withIdentifier: "createPostView")
@@ -27,19 +34,18 @@ class NewsfeedTableViewController : UITableViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         if(!isUserLoggedIn) {
             self.performSegue(withIdentifier: "loginViewSegue", sender: self)
         }
-        super.viewDidLoad()
-        self.setupSearchController()
         self.fetchPosts()
+        SearchButtonAux = SearchButton
         tableView.separatorStyle = .none
-        // dynamic table view cell height
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        //tableView.rowHeight = 488.0
-        //tableView.estimatedRowHeight = tableView.rowHeight
+        searchBar.delegate = self
+        SearchButton = navigationItem.rightBarButtonItem
     }
     
     func fetchPosts() {
@@ -47,15 +53,29 @@ class NewsfeedTableViewController : UITableViewController {
         tableView.reloadData()
     }
     
-    func setupSearchController() {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = true
-        searchController.searchBar.barStyle = .black
-        navigationItem.titleView = searchController.searchBar
-        definesPresentationContext = true
+    func searchBarShow() {
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = UIColor.white
+        searchBar.barStyle = .default
+        searchBar.tintColor = UIColor(hexString: "#dc9c03")
+        searchBar.searchBarStyle = UISearchBarStyle.minimal
+        searchBar.alpha = 0
+        searchBar.showsCancelButton = true
+        navigationItem.titleView = searchBar
+        navigationItem.setLeftBarButton(nil, animated: true)
+        UIView.animate(withDuration: 0.5, animations: {self.searchBar.alpha = 1}, completion: {finished in self.searchBar.becomeFirstResponder()})
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // Do the search stuff
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.endEditing(true)
+        navigationItem.setLeftBarButton(SearchButtonAux, animated: true)
+        UIView.animate(withDuration: 0.3, animations:{self.navigationItem.titleView = nil}, completion: {finished in})
+    }
 }
 
 extension NewsfeedTableViewController {

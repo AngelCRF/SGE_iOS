@@ -57,7 +57,7 @@ class AccoutOptionsViewController: UIViewController, UITableViewDelegate, UITabl
         case 2:
             UserDefaults.standard.set(false,forKey:"isUserLoggedIn");
             UserDefaults.standard.synchronize();
-            performSegue(withIdentifier: "logoutSegue", sender: self);
+            self.tabBarController?.selectedIndex = 0
         default:
             index=0;
         }
