@@ -14,6 +14,7 @@
 		8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBED20279029009427F7 /* LaunchScreen.storyboard */; };
 		8C456AC82043C36C007684F8 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C456AC72043C36C007684F8 /* AccountViewController.swift */; };
 		8C47D76B20D4336A00117C2C /* grupos.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C47D76A20D4336A00117C2C /* grupos.json */; };
+		8C58B7AE20D5B2EB009BBFC6 /* ShowPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */; };
 		8C8225DC202F8F4400A5AD89 /* poststest.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C8225DB202F8F4400A5AD89 /* poststest.json */; };
 		8CC693F520314AE20049FFA5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F420314AE20049FFA5 /* Post.swift */; };
 		8CC693F720314D540049FFA5 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */; };
@@ -40,6 +41,7 @@
 		8C37EBF020279029009427F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C456AC72043C36C007684F8 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		8C47D76A20D4336A00117C2C /* grupos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = grupos.json; path = ../../../../../Downloads/grupos.json; sourceTree = "<group>"; };
+		8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostViewController.swift; sourceTree = "<group>"; };
 		8C8225DB202F8F4400A5AD89 /* poststest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = poststest.json; sourceTree = "<group>"; };
 		8CC693F420314AE20049FFA5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				E27F0F3D20D3530F00B787EF /* AccoutOptionsViewController.swift */,
 				E27F0F3F20D35DF300B787EF /* GroupsCollectionViewCell.swift */,
 				E27F0F4520D38A8300B787EF /* GroupsViewController.swift */,
+				8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */,
 			);
 			path = SGE_iOS;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				E26E49B720B507BB001BC8A6 /* ScheduleTableViewHeaderFooterView.swift in Sources */,
 				E29CFBDF203941C90009496E /* CreatePostViewController.swift in Sources */,
 				E26E49AF20B5067A001BC8A6 /* ScheduleViewController.swift in Sources */,
+				8C58B7AE20D5B2EB009BBFC6 /* ShowPostViewController.swift in Sources */,
 				8CC693F520314AE20049FFA5 /* Post.swift in Sources */,
 				E27F0F4620D38A8300B787EF /* GroupsViewController.swift in Sources */,
 			);
