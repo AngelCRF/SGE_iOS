@@ -24,6 +24,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
 
         // Do any additional setup after loading the view.
         self.postTextView.delegate = self
+        self.navigationController?.navigationBar.tintColor = UIColor(hexString: "#dc9c03")
         self.tabBarController?.tabBar.isHidden = true
         self.toolbarBottomConstraintInitialValue = toolBarBottomConst.constant
         NotificationCenter.default.addObserver(

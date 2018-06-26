@@ -66,7 +66,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    self.navigationItem.title = "Horario"
+        self.navigationItem.title = "Horario"
+        self.navigationController?.navigationBar.tintColor = UIColor(hexString: "#dc9c03")
         
         //nuevo
         let path = Bundle.main.path(forResource: "subjecttest", ofType: "json")
