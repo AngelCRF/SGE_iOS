@@ -32,6 +32,12 @@ struct subject: Decodable {
     }
 }
 
+extension Date {
+    func dayNumberOfWeek() -> Int? {
+        return Calendar.current.dateComponents([.weekday], from: self).weekday
+    }
+}
+
 class subTableViewCell: UITableViewCell {
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var professorLabel: UILabel!
@@ -52,6 +58,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     var sections:[Section]?
     var subjects: [subject]?
+    var flag:Bool = false
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -72,11 +79,33 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         catch {
             
         }
+        var lunes = Section(day: "Lunes", subjects: daySchedule(day: 0), expanded: false )
+        var martes = Section(day: "Martes", subjects: daySchedule(day: 1), expanded: false )
+        var miercoles = Section(day: "Miércoles", subjects: daySchedule(day: 2), expanded: false )
+        var jueves = Section(day: "Jueves", subjects: daySchedule(day: 3), expanded: false )
+        var viernes = Section(day: "Viernes", subjects: daySchedule(day: 4), expanded: false )
         
-        let lunes = Section(day: "Lunes", subjects: daySchedule(day: 0), expanded: false )
-        let martes = Section(day: "Martes", subjects: daySchedule(day: 1), expanded: false )
-        let miercoles = Section(day: "Miércoles", subjects: daySchedule(day: 2), expanded: false )
-        sections = [lunes, martes, miercoles]
+        let day = Date().dayNumberOfWeek()!
+        switch(day){
+        case 2: //Monday
+            lunes = Section(day: "Lunes", subjects: daySchedule(day: 0), expanded: true )
+            break;
+        case 3: //Tuesday
+            martes = Section(day: "Martes", subjects: daySchedule(day: 1), expanded: true )
+            break;
+        case 4: //Wednesday
+            miercoles = Section(day: "Miércoles", subjects: daySchedule(day: 2), expanded: true )
+            break;
+        case 5: //Thursday
+            jueves = Section(day: "Jueves", subjects: daySchedule(day: 3), expanded: true )
+            break;
+        case 6: //Friday
+            viernes = Section(day: "Viernes", subjects: daySchedule(day: 4), expanded: true )
+            break;
+        default:
+            break;
+        }
+        sections = [lunes, martes, miercoles, jueves, viernes]
     }
     
     func daySchedule(day : Int) -> [String]{
@@ -100,6 +129,26 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if(!flag){
+            let day = Date().dayNumberOfWeek()!
+            switch(day){
+                case 2: //Monday
+                    break;
+                case 3: //Tuesday
+                    break;
+                case 4: //Wednesday
+                    break;
+                case 5: //Thursday
+                    break;
+                case 6: //Friday
+                    break;
+                default:
+                    break;
+            }
+            flag = true;
+        }
+        
         if(sections![indexPath.section].expanded){
             return 85
         }else{
