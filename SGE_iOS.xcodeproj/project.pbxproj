@@ -15,8 +15,8 @@
 		8C456AC82043C36C007684F8 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C456AC72043C36C007684F8 /* AccountViewController.swift */; };
 		8C47D76B20D4336A00117C2C /* grupos.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C47D76A20D4336A00117C2C /* grupos.json */; };
 		8C58B7AE20D5B2EB009BBFC6 /* ShowPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */; };
-		8C8225DC202F8F4400A5AD89 /* poststest.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C8225DB202F8F4400A5AD89 /* poststest.json */; };
-		8CC693F520314AE20049FFA5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F420314AE20049FFA5 /* Post.swift */; };
+		8C8225DC202F8F4400A5AD89 /* allPosts.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C8225DB202F8F4400A5AD89 /* allPosts.json */; };
+		8CC693F520314AE20049FFA5 /* Post.txt in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F420314AE20049FFA5 /* Post.txt */; };
 		8CC693F720314D540049FFA5 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */; };
 		8CC80F72202FB8AF001081D4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC80F71202FB8AF001081D4 /* PostCell.swift */; };
 		E241DB7020C62481004656AC /* subjecttest.json in Resources */ = {isa = PBXBuildFile; fileRef = E241DB6F20C62481004656AC /* subjecttest.json */; };
@@ -42,8 +42,8 @@
 		8C456AC72043C36C007684F8 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		8C47D76A20D4336A00117C2C /* grupos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = grupos.json; path = ../../../../../Downloads/grupos.json; sourceTree = "<group>"; };
 		8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostViewController.swift; sourceTree = "<group>"; };
-		8C8225DB202F8F4400A5AD89 /* poststest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = poststest.json; sourceTree = "<group>"; };
-		8CC693F420314AE20049FFA5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8C8225DB202F8F4400A5AD89 /* allPosts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allPosts.json; sourceTree = "<group>"; };
+		8CC693F420314AE20049FFA5 /* Post.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Post.txt; sourceTree = "<group>"; };
 		8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
 		8CC80F71202FB8AF001081D4 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		E241DB6F20C62481004656AC /* subjecttest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = subjecttest.json; sourceTree = "<group>"; };
@@ -89,26 +89,26 @@
 			isa = PBXGroup;
 			children = (
 				8C50510A20B25A220068F0E1 /* Other */,
-				8C37EBE420279029009427F7 /* AppDelegate.swift */,
+				8C37EBF020279029009427F7 /* Info.plist */,
 				8C37EBE820279029009427F7 /* Main.storyboard */,
+				8C37EBED20279029009427F7 /* LaunchScreen.storyboard */,
+				8C37EBE420279029009427F7 /* AppDelegate.swift */,
 				E26E49AA20B5067A001BC8A6 /* ScheduleViewController.swift */,
 				8C37EBE620279029009427F7 /* LoginViewController.swift */,
-				E241DB6F20C62481004656AC /* subjecttest.json */,
-				8C47D76A20D4336A00117C2C /* grupos.json */,
-				E26E49A720B5067A001BC8A6 /* AccountOptionTableViewCell.swift */,
-				8CC80F71202FB8AF001081D4 /* PostCell.swift */,
-				8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */,
-				8CC693F420314AE20049FFA5 /* Post.swift */,
-				8C37EBEB20279029009427F7 /* Assets.xcassets */,
-				8C37EBED20279029009427F7 /* LaunchScreen.storyboard */,
-				8C37EBF020279029009427F7 /* Info.plist */,
-				8C8225DB202F8F4400A5AD89 /* poststest.json */,
 				E29CFBDE203941C90009496E /* CreatePostViewController.swift */,
 				8C456AC72043C36C007684F8 /* AccountViewController.swift */,
 				E27F0F3D20D3530F00B787EF /* AccoutOptionsViewController.swift */,
 				E27F0F3F20D35DF300B787EF /* GroupsCollectionViewCell.swift */,
 				E27F0F4520D38A8300B787EF /* GroupsViewController.swift */,
 				8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */,
+				E26E49A720B5067A001BC8A6 /* AccountOptionTableViewCell.swift */,
+				8CC80F71202FB8AF001081D4 /* PostCell.swift */,
+				8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */,
+				8CC693F420314AE20049FFA5 /* Post.txt */,
+				E241DB6F20C62481004656AC /* subjecttest.json */,
+				8C47D76A20D4336A00117C2C /* grupos.json */,
+				8C8225DB202F8F4400A5AD89 /* allPosts.json */,
+				8C37EBEB20279029009427F7 /* Assets.xcassets */,
 			);
 			path = SGE_iOS;
 			sourceTree = "<group>";
@@ -193,7 +193,7 @@
 			files = (
 				8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */,
 				8C37EBEC20279029009427F7 /* Assets.xcassets in Resources */,
-				8C8225DC202F8F4400A5AD89 /* poststest.json in Resources */,
+				8C8225DC202F8F4400A5AD89 /* allPosts.json in Resources */,
 				8C47D76B20D4336A00117C2C /* grupos.json in Resources */,
 				E241DB7020C62481004656AC /* subjecttest.json in Resources */,
 				8C37EBEA20279029009427F7 /* Main.storyboard in Resources */,
@@ -221,7 +221,7 @@
 				E29CFBDF203941C90009496E /* CreatePostViewController.swift in Sources */,
 				E26E49AF20B5067A001BC8A6 /* ScheduleViewController.swift in Sources */,
 				8C58B7AE20D5B2EB009BBFC6 /* ShowPostViewController.swift in Sources */,
-				8CC693F520314AE20049FFA5 /* Post.swift in Sources */,
+				8CC693F520314AE20049FFA5 /* Post.txt in Sources */,
 				E27F0F4620D38A8300B787EF /* GroupsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,6 +14,29 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
     var searchBar = UISearchBar()
     var SearchButtonAux = UIBarButtonItem()
     
+    @IBOutlet var NewsFeedTableView: UITableView!
+    
+    struct Post: Decodable {
+        var id_post: String = ""
+        var createdBy: User? = nil
+        var date: String = ""
+        var group: String = ""
+        var caption: String = ""
+        var image: String? = nil
+        var comments = [Comment]()
+    }
+    
+    struct Comment: Decodable {
+        var comment: String = ""
+        var createdBy: User? = nil
+    }
+    
+    struct User: Decodable {
+        var username: String = ""
+        var profileImage: String = ""
+        var id_user: String = ""
+    }
+    
     @IBOutlet weak var SearchButton: UIBarButtonItem!
     
     @IBAction func ClickSearchButton(_ sender: Any) {
@@ -24,6 +47,13 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         let createPost = self.storyboard?.instantiateViewController(withIdentifier: "createPostView")
         self.navigationController?.pushViewController(createPost!, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "ShowPostSegue", sender: cell)
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
@@ -39,7 +69,7 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         if(!isUserLoggedIn) {
             self.performSegue(withIdentifier: "loginViewSegue", sender: self)
         }
-        self.fetchPosts()
+        self.fetchPosts(origin:"0")
         SearchButtonAux = SearchButton
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = tableView.rowHeight
@@ -48,8 +78,24 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         SearchButton = navigationItem.rightBarButtonItem
     }
     
-    func fetchPosts() {
-        self.posts = Post.fetchPosts()
+    func fetchPosts(origin:String) {
+        if origin == "0" {
+            // Obtain JSON with all the posts
+            let path = Bundle.main.path(forResource: "allPosts", ofType: "json")
+            let url = URL(fileURLWithPath: path!)
+            do{
+                let data = try Data(contentsOf: url)
+                posts = try JSONDecoder().decode([Post].self, from: data)
+            }
+            catch {
+                
+            }
+        } else {
+            // Obtain JSON with filtered posts
+        }
+        //let duc = User(username: "Kevin Angel", profileImage: UIImage(named: "icon_user"))
+        //let post1 = Post(createdBy: duc, timeAgo: "1 hr", caption: "Wise words from Will Smith: The only thing that I see that is distinctly different from me is: I'm not afraid to die on a treadmillz.", image: UIImage(named: "logo_it"), numberOfComments: 32)
+        //posts.append(post1)
         tableView.reloadData()
     }
     
@@ -93,3 +139,5 @@ extension NewsfeedTableViewController {
         return cell
     }
 }
+
+

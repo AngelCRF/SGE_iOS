@@ -19,24 +19,38 @@ class PostCell : UITableViewCell {
     @IBOutlet weak var ProfileImageView: UIImageView!
     @IBOutlet weak var NCommentsLabel: UILabel!
     
-    var post : Post!{
+    var id: String!
+    var post : NewsfeedTableViewController.Post!{
         didSet{
             self.updateUI()
         }
     }
     
     func updateUI(){
-        ProfileImageView.image = post.createdBy.profileImage
-        UserNameLabel.text = post.createdBy.username
-        TimeLabel.text = post.timeAgo
+        
+        let data = try? Data(contentsOf: URL(string:(post.createdBy?.profileImage)!)!)
+        if let imageData = data {
+            let image = UIImage(data: imageData)
+            ProfileImageView.image = image
+        } else {
+            ProfileImageView.image = #imageLiteral(resourceName: "icon_user")
+        }
+        UserNameLabel.text = post.createdBy?.username
+        TimeLabel.text = post.date
+        OriginLabel.text = post.group
         PostLabel.text = post.caption
+        
         if (post.image != nil) {
-            PostImageImageView.image = post.image
-            PostImageImageView.frame.size.height = 256.0
+            if let _ = Bundle.main.path(forResource: "imageName", ofType: "jpg"), let image = UIImage(contentsOfFile: post.image!) {
+                PostImageImageView.image = image
+            } else {
+            PostImageImageView.image = nil
+            PostImageImageView.frame.size.height = 1.0
+            }
         } else {
             PostImageImageView.image = nil
             PostImageImageView.frame.size.height = 1.0
         }
-        NCommentsLabel.text = "\(post.numberOfComments!) Comments"
+        NCommentsLabel.text = "\(post.comments.count) Comments"
     }
 }
