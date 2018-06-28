@@ -38,14 +38,14 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
     }
     
     @IBAction func importImageFromCamera(_ sender: UIBarButtonItem) {
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerControllerSourceType.camera
-        image.cameraCaptureMode = .photo
-        image.modalPresentationStyle = .fullScreen
-        image.allowsEditing = false
-        self.present(image, animated: true){
-            //after completed
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+            let image = UIImagePickerController()
+            image.delegate = self
+            image.sourceType = UIImagePickerControllerSourceType.camera
+            image.cameraCaptureMode = .photo
+            image.modalPresentationStyle = .fullScreen
+            image.allowsEditing = false
+            self.present(image, animated: true, completion: nil)
         }
     }
     
@@ -59,10 +59,10 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
         }
     }
     
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
+            photoImageView.contentMode = .scaleToFill
             photoImageView.image = image
         }
         else
