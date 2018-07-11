@@ -1,1 +1,12 @@
-
+ [
+  {
+  "id":11,
+  "nombre_completo_materia":"FUNDAMENTOS DE PROGRAMACION",
+  "grupo":"A"
+  },
+  {
+  "id":12,
+  "nombre_completo_materia":"TALLER DE DESARROLLO DE SOFTWARE",
+  "grupo":"A"
+  }
+  ]
