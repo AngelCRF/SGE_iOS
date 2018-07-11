@@ -8,8 +8,9 @@
 
 import UIKit
 
-class AccoutOptionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AccoutOptionsViewController: UIViewController, UITableViewDelegate {
 
+    /*
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "optionCell" ) as! AccountOptionTableViewCell
         cell.cellText.text = options[indexPath.row]
@@ -17,12 +18,13 @@ class AccoutOptionsViewController: UIViewController, UITableViewDelegate, UITabl
         cell.view.layer.cornerRadius = cell.view.frame.height / 2
         return cell
     }
+    */
     
-    
-    let options = ["Mi horario", "Configuracion", "Cerrar sesión"]
-    let img = ["calendar-icon", "settings", "logout"]
+    //let options = ["Mi horario", "Configuracion", "Cerrar sesión"]
+    //let img = ["calendar-icon", "settings", "logout"]
     var index = 0;
     
+    @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet var profileName: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var tableOptions: UITableView!
@@ -32,6 +34,8 @@ class AccoutOptionsViewController: UIViewController, UITableViewDelegate, UITabl
         profileImage.layer.masksToBounds = true
         profileImage.layer.cornerRadius = 90
         self.navigationItem.title = ""
+        let dateComponents = NSDateComponents()
+        dayLabel.text = "\(dateComponents.day)"
         // Do any additional setup after loading the view.
     }
     
@@ -40,26 +44,20 @@ class AccoutOptionsViewController: UIViewController, UITableViewDelegate, UITabl
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         index = indexPath.row
-        switch index {
-        case 0:
+        if (indexPath.section == 2 && indexPath.row == 0) {
             performSegue(withIdentifier: "scheduleSegue", sender: self)
-        //case 1:
-        case 2:
+        }
+        
+        if (indexPath.section == 3 && indexPath.row == 0) {
             UserDefaults.standard.set(false,forKey:"isUserLoggedIn");
             UserDefaults.standard.synchronize();
             self.tabBarController?.selectedIndex = 0
-        default:
-            index=0;
         }
     }
     

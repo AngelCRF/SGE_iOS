@@ -8,5 +8,35 @@
     "id":12,
     "nombre_completo_materia":"TALLER DE DESARROLLO DE SOFTWARE",
     "grupo":"A"
-  }
+ },
+ {
+ "id":13,
+ "nombre_completo_materia":"CALCULO DIFERENCIAL",
+ "grupo":"A"
+ },
+ {
+ "id":14,
+ "nombre_completo_materia":"CALCULO INTEGRAL",
+ "grupo":"A"
+ },
+ {
+ "id":15,
+ "nombre_completo_materia":"MATEMATICAS DISCRETAS",
+ "grupo":"A"
+ },
+ {
+ "id":16,
+ "nombre_completo_materia":"PROGRAMACION ORIENTADA A OBJETOS",
+ "grupo":"A"
+ },
+ {
+ "id":17,
+ "nombre_completo_materia":"TALLER DE INVESTIGACIÓN",
+ "grupo":"A"
+ },
+ {
+ "id":18,
+ "nombre_completo_materia":"CONTABILIDAD",
+ "grupo":"A"
+ }
 ]

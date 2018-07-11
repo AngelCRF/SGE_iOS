@@ -17,6 +17,29 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
     var writeFlag:Bool = false
     var toolbarBottomConstraintInitialValue: CGFloat?
     @IBOutlet weak var postTextView: UITextView!
+
+    @IBAction func folderToolBarOnClick(_ sender: UIBarButtonItem) {
+        let image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        image.allowsEditing = false
+        self.present(image, animated: true){
+            //after completed
+        }
+    }
+    
+    @IBAction func cameraToolBarOnClick(_ sender: UIBarButtonItem) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+            let image = UIImagePickerController()
+            image.delegate = self
+            image.sourceType = UIImagePickerControllerSourceType.camera
+            image.cameraCaptureMode = .photo
+            image.modalPresentationStyle = .fullScreen
+            image.allowsEditing = false
+            self.present(image, animated: true, completion: nil)
+        }
+    }
+    
     
     
     override func viewDidLoad() {
@@ -24,18 +47,25 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
 
         // Do any additional setup after loading the view.
         self.postTextView.delegate = self
+        postTextView!.layer.borderWidth = 1
+        //postTextView!.layer.borderColor = (UIColor.gray as! CGColor)
+        self.navigationItem.title = "Post"
         self.navigationController?.navigationBar.tintColor = UIColor(hexString: "#dc9c03")
-        self.tabBarController?.tabBar.isHidden = true
-        self.toolbarBottomConstraintInitialValue = toolBarBottomConst.constant
+        self.tabBarController?.tabBar.isHidden = false
+        //self.toolbarBottomConstraintInitialValue = toolBarBottomConst.constant
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow),
             name: NSNotification.Name.UIKeyboardWillShow,
             object: nil
         )
+        
         groupPickerView.delegate = self
         groupPickerView.dataSource = self
+        
     }
+    
+    
     
     @IBAction func importImageFromCamera(_ sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
@@ -62,7 +92,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
-            photoImageView.contentMode = .scaleToFill
+            //photoImageView.contentMode = .scaleToFill
             photoImageView.image = image
         }
         else
@@ -77,7 +107,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.postTextView.resignFirstResponder()
-        self.toolBarBottomConst.constant = self.toolbarBottomConstraintInitialValue!
+        //self.toolBarBottomConst.constant = self.toolbarBottomConstraintInitialValue!
         self.view.layoutIfNeeded()
     }
     
@@ -101,7 +131,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if(postTextView.text == ""){
-            postTextView.text = "What's on your mind?"
+            postTextView.text = "¿En qué estas pensando?"
             writeFlag = false
         }
         
