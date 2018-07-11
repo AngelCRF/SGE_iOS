@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C0FF63920F52CF500A0673E /* grupos.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C0FF63820F52CF500A0673E /* grupos.json */; };
 		8C37EBE520279029009427F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37EBE420279029009427F7 /* AppDelegate.swift */; };
 		8C37EBE720279029009427F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37EBE620279029009427F7 /* LoginViewController.swift */; };
 		8C37EBEA20279029009427F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBE820279029009427F7 /* Main.storyboard */; };
 		8C37EBEC20279029009427F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBEB20279029009427F7 /* Assets.xcassets */; };
 		8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBED20279029009427F7 /* LaunchScreen.storyboard */; };
 		8C456AC82043C36C007684F8 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C456AC72043C36C007684F8 /* AccountViewController.swift */; };
-		8C47D76B20D4336A00117C2C /* grupos.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C47D76A20D4336A00117C2C /* grupos.json */; };
 		8C58B7AE20D5B2EB009BBFC6 /* ShowPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */; };
 		8C8225DC202F8F4400A5AD89 /* allPosts.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C8225DB202F8F4400A5AD89 /* allPosts.json */; };
 		8CC693F520314AE20049FFA5 /* Post.txt in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F420314AE20049FFA5 /* Post.txt */; };
@@ -32,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C0FF63820F52CF500A0673E /* grupos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = grupos.json; sourceTree = "<group>"; };
 		8C37EBE120279028009427F7 /* SGE_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGE_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C37EBE420279029009427F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C37EBE620279029009427F7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +41,6 @@
 		8C37EBEE20279029009427F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C37EBF020279029009427F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C456AC72043C36C007684F8 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		8C47D76A20D4336A00117C2C /* grupos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = grupos.json; path = ../../../../../Downloads/grupos.json; sourceTree = "<group>"; };
 		8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostViewController.swift; sourceTree = "<group>"; };
 		8C8225DB202F8F4400A5AD89 /* allPosts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allPosts.json; sourceTree = "<group>"; };
 		8CC693F420314AE20049FFA5 /* Post.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Post.txt; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 				8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */,
 				8CC693F420314AE20049FFA5 /* Post.txt */,
 				E241DB6F20C62481004656AC /* subjecttest.json */,
-				8C47D76A20D4336A00117C2C /* grupos.json */,
+				8C0FF63820F52CF500A0673E /* grupos.json */,
 				8C8225DB202F8F4400A5AD89 /* allPosts.json */,
 				8C37EBEB20279029009427F7 /* Assets.xcassets */,
 			);
@@ -191,10 +191,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C0FF63920F52CF500A0673E /* grupos.json in Resources */,
 				8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */,
 				8C37EBEC20279029009427F7 /* Assets.xcassets in Resources */,
 				8C8225DC202F8F4400A5AD89 /* allPosts.json in Resources */,
-				8C47D76B20D4336A00117C2C /* grupos.json in Resources */,
 				E241DB7020C62481004656AC /* subjecttest.json in Resources */,
 				8C37EBEA20279029009427F7 /* Main.storyboard in Resources */,
 			);
