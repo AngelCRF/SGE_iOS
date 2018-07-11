@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C0FF63920F52CF500A0673E /* grupos.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C0FF63820F52CF500A0673E /* grupos.json */; };
 		8C37EBE520279029009427F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37EBE420279029009427F7 /* AppDelegate.swift */; };
 		8C37EBE720279029009427F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37EBE620279029009427F7 /* LoginViewController.swift */; };
 		8C37EBEA20279029009427F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBE820279029009427F7 /* Main.storyboard */; };
@@ -31,7 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8C0FF63820F52CF500A0673E /* grupos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = grupos.json; sourceTree = "<group>"; };
 		8C37EBE120279028009427F7 /* SGE_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGE_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C37EBE420279029009427F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C37EBE620279029009427F7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 				8CC80F71202FB8AF001081D4 /* PostCell.swift */,
 				8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */,
 				E241DB6F20C62481004656AC /* subjecttest.json */,
-				8C0FF63820F52CF500A0673E /* grupos.json */,
 				8C8225DB202F8F4400A5AD89 /* allPosts.json */,
 				8C37EBEB20279029009427F7 /* Assets.xcassets */,
 			);
@@ -188,7 +185,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C0FF63920F52CF500A0673E /* grupos.json in Resources */,
 				8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */,
 				8C37EBEC20279029009427F7 /* Assets.xcassets in Resources */,
 				8C8225DC202F8F4400A5AD89 /* allPosts.json in Resources */,
