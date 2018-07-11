@@ -16,7 +16,6 @@
 		8C456AC82043C36C007684F8 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C456AC72043C36C007684F8 /* AccountViewController.swift */; };
 		8C58B7AE20D5B2EB009BBFC6 /* ShowPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */; };
 		8C8225DC202F8F4400A5AD89 /* allPosts.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C8225DB202F8F4400A5AD89 /* allPosts.json */; };
-		8CC693F520314AE20049FFA5 /* Post.txt in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F420314AE20049FFA5 /* Post.txt */; };
 		8CC693F720314D540049FFA5 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */; };
 		8CC80F72202FB8AF001081D4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC80F71202FB8AF001081D4 /* PostCell.swift */; };
 		E241DB7020C62481004656AC /* subjecttest.json in Resources */ = {isa = PBXBuildFile; fileRef = E241DB6F20C62481004656AC /* subjecttest.json */; };
@@ -43,7 +42,6 @@
 		8C456AC72043C36C007684F8 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostViewController.swift; sourceTree = "<group>"; };
 		8C8225DB202F8F4400A5AD89 /* allPosts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allPosts.json; sourceTree = "<group>"; };
-		8CC693F420314AE20049FFA5 /* Post.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Post.txt; sourceTree = "<group>"; };
 		8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
 		8CC80F71202FB8AF001081D4 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		E241DB6F20C62481004656AC /* subjecttest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = subjecttest.json; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 				E26E49A720B5067A001BC8A6 /* AccountOptionTableViewCell.swift */,
 				8CC80F71202FB8AF001081D4 /* PostCell.swift */,
 				8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */,
-				8CC693F420314AE20049FFA5 /* Post.txt */,
 				E241DB6F20C62481004656AC /* subjecttest.json */,
 				8C0FF63820F52CF500A0673E /* grupos.json */,
 				8C8225DB202F8F4400A5AD89 /* allPosts.json */,
@@ -221,7 +218,6 @@
 				E29CFBDF203941C90009496E /* CreatePostViewController.swift in Sources */,
 				E26E49AF20B5067A001BC8A6 /* ScheduleViewController.swift in Sources */,
 				8C58B7AE20D5B2EB009BBFC6 /* ShowPostViewController.swift in Sources */,
-				8CC693F520314AE20049FFA5 /* Post.txt in Sources */,
 				E27F0F4620D38A8300B787EF /* GroupsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
