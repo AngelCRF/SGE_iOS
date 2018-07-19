@@ -13,11 +13,12 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
     @IBOutlet weak var groupPickerView: UIPickerView!
     let ArrayGroups = ["Grupo A", "Grupo B", "C", "F"]
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var toolBarBottomConst: NSLayoutConstraint!
+    
     var writeFlag:Bool = false
     var toolbarBottomConstraintInitialValue: CGFloat?
     @IBOutlet weak var postTextView: UITextView!
-
+    
+    @IBOutlet weak var toolbarBottomConst: NSLayoutConstraint!
     @IBAction func folderToolBarOnClick(_ sender: UIBarButtonItem) {
         let image = UIImagePickerController()
         image.delegate = self
@@ -47,7 +48,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
 
         // Do any additional setup after loading the view.
         self.postTextView.delegate = self
-        postTextView!.layer.borderWidth = 1
+        //postTextView!.layer.borderWidth = 1
         //postTextView!.layer.borderColor = (UIColor.gray as! CGColor)
         self.navigationItem.title = "Post"
         self.navigationController?.navigationBar.tintColor = UIColor(hexString: "#dc9c03")
@@ -62,6 +63,8 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
         
         groupPickerView.delegate = self
         groupPickerView.dataSource = self
+        
+        self.toolbarBottomConstraintInitialValue = toolbarBottomConst.constant
         
     }
     
@@ -107,7 +110,7 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.postTextView.resignFirstResponder()
-        //self.toolBarBottomConst.constant = self.toolbarBottomConstraintInitialValue!
+        self.toolbarBottomConst.constant = self.toolbarBottomConstraintInitialValue!
         self.view.layoutIfNeeded()
     }
     
@@ -123,9 +126,22 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double
         UIView.animate(withDuration: duration) { () -> Void in
-            self.toolBarBottomConst.constant = keyboardFrame.size.height + 5
+            self.toolbarBottomConst.constant = keyboardFrame.size.height - 5
             self.view.layoutIfNeeded()
         }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        
+        let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double
+        
+        UIView.animate(withDuration: duration) { () -> Void in
+            
+            self.toolbarBottomConst.constant = self.toolbarBottomConstraintInitialValue!
+            self.view.layoutIfNeeded()
+            
+        }
+        
     }
 
 
