@@ -132,26 +132,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if(!flag){
-            let day = Date().dayNumberOfWeek()!
-            switch(day){
-                case 2: //Monday
-                    break;
-                case 3: //Tuesday
-                    break;
-                case 4: //Wednesday
-                    break;
-                case 5: //Thursday
-                    break;
-                case 6: //Friday
-                    break;
-                default:
-                    break;
-            }
-            flag = true;
-        }
-        
         if(sections![indexPath.section].expanded){
             return 85
         }else{
