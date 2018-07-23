@@ -21,7 +21,7 @@ struct subject: Decodable {
      */
 
     func getScheduleDay(day:Int)->String{
-        return "\(schedule[day].split(separator: " ")[1]) \(schedule[day].split(separator: " ")[2]) \t\(schedule[day].split(separator: " ")[3])"
+        return "\(schedule[day])"
     }
     
     func getName()->String{
@@ -112,7 +112,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     func daySchedule(day : Int) -> [String]{
         var chain = [String]()
         for sub in subjects!{
-            chain.append(sub.getName() + "\n" + sub.getProfessor() + "\n" + sub.getScheduleDay(day: day))
+            if(!sub.getScheduleDay(day: day).elementsEqual("sin horario asignado")){
+               chain.append(sub.getName() + "\n" + sub.getProfessor() + "\n" + sub.getScheduleDay(day: day))
+            }
         }
         return chain
     }
@@ -175,6 +177,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         cell.subjectLabel?.text = String (sections![indexPath.section].subjects[indexPath.row].split(separator: "\n")[0])
         cell.professorLabel?.text = String (sections![indexPath.section].subjects[indexPath.row].split(separator: "\n")[1])
         cell.timeLabel?.text = String (sections![indexPath.section].subjects[indexPath.row].split(separator: "\n")[2])
+        
         return cell
     }
     

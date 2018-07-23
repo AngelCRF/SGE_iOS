@@ -10,12 +10,24 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
 
+    @IBOutlet weak var userSemester: UILabel!
+    @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var dayLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         profileImage.layer.masksToBounds = true
         profileImage.layer.cornerRadius = 30
+        
+        /*
+         Obtener imagen de URL y Nombre del alumno.
+        userName.text = ""
+         userSemester.text = "semester: \(variable)"
+         NSString *ImageURL = @"http://www.leadershipgeeks.com/wp-content/uploads/stevejobs-239x300.jpg";
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:ImageURL]];
+        profileImage.image = [UIImage imageWithData:imageData];
+        */
+        
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd"

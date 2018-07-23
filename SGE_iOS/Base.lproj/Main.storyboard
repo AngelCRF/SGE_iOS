@@ -542,6 +542,8 @@
                     <connections>
                         <outlet property="dayLabel" destination="MsM-XQ-BNr" id="pBM-ll-Xcu"/>
                         <outlet property="profileImage" destination="iod-QK-gsh" id="7C7-mq-wqp"/>
+                        <outlet property="userName" destination="Rv2-he-phM" id="Ny7-AX-yDt"/>
+                        <outlet property="userSemester" destination="PQo-PS-BMs" id="9WJ-le-4fc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDH-YK-8ab" userLabel="First Responder" sceneMemberID="firstResponder"/>
