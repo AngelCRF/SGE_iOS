@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-class PostCell : UITableViewCell {
+class PostCell: UITableViewCell {
     
+    @IBOutlet weak var PostidLabel: UILabel!
     @IBOutlet weak var PostLabel: UILabel!
     @IBOutlet weak var PostImageImageView: UIImageView!
     @IBOutlet weak var TimeLabel: UILabel!
@@ -20,37 +21,72 @@ class PostCell : UITableViewCell {
     @IBOutlet weak var NCommentsLabel: UILabel!
     
     var id: String!
-    var post : NewsfeedTableViewController.Post!{
+    var post: NewsfeedTableViewController.Post!{
         didSet{
             self.updateUI()
         }
     }
     
     func updateUI(){
-        
-        let data = try? Data(contentsOf: URL(string:(post.createdBy?.profileImage)!)!)
-        if let imageData = data {
-            let image = UIImage(data: imageData)
-            ProfileImageView.image = image
+        if let url = URL(string: (post.createdBy?.profileImage)!) {
+            downloadImage(url: url)
         } else {
-            ProfileImageView.image = #imageLiteral(resourceName: "icon_user")
+            ProfileImageView.image = #imageLiteral(resourceName: "pony")
         }
+        PostidLabel.text=post.id_post
         UserNameLabel.text = post.createdBy?.username
         TimeLabel.text = post.date
         OriginLabel.text = post.group
         PostLabel.text = post.caption
-        
-        if (post.image != nil) {
-            if let _ = Bundle.main.path(forResource: "imageName", ofType: "jpg"), let image = UIImage(contentsOfFile: post.image!) {
-                PostImageImageView.image = image
-            } else {
-            PostImageImageView.image = nil
-            PostImageImageView.frame.size.height = 1.0
-            }
+        PostImageImageView.downloadedFrom(link: post.image!)
+        if (post.image != "" ) {
+            PostImageImageView.downloadedFrom(link: post.image!)
         } else {
             PostImageImageView.image = nil
             PostImageImageView.frame.size.height = 1.0
         }
-        NCommentsLabel.text = "\(post.comments.count) Comments"
+        if (post.comments.count==0){
+            NCommentsLabel.text = "Sin Comentarios"
+        } else if (post.comments.count==1){
+            NCommentsLabel.text = "\(post.comments.count) Comentario"
+        } else {
+            NCommentsLabel.text = "\(post.comments.count) Comentarios"
+        }
+    }
+    
+    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+            }.resume()
+    }
+    
+    func downloadImage(url: URL) {
+        getDataFromUrl(url: url) { data, response, error in guard let data = data, error == nil else { return }
+            DispatchQueue.main.async() {
+                    self.ProfileImageView.image = UIImage(data: data)
+            }
+        }
+    }
+}
+
+extension UIImageView {
+    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                self.image = image
+            }
+            }.resume()
+    }
+    
+    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloadedFrom(url: url, contentMode: mode)
     }
 }

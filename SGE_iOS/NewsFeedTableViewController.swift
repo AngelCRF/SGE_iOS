@@ -10,15 +10,17 @@ import Foundation
 import UIKit
 
 class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
+    
     var posts: [Post] = Array()
     var postsshowed: [Post] = Array()
     var limit = 5
-    let totalEnteries = 50
+    var totalEnteries: Int!
     var searchBar = UISearchBar()
-    var SearchButtonAux = UIBarButtonItem()
+    var searchButtonAux = UIBarButtonItem()
+    var refresher: UIRefreshControl!
+    var indexaux: IndexPath!
     
     @IBOutlet var NewsFeedTableView: UITableView!
-    
     @IBOutlet weak var SearchButton: UIBarButtonItem!
     
     @IBAction func ClickSearchButton(_ sender: Any) {
@@ -51,14 +53,6 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         var id_user: String = ""
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
-        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
-        if(!isUserLoggedIn) {
-            self.performSegue(withIdentifier: "loginViewSegue", sender: self)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
@@ -66,15 +60,27 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
             self.performSegue(withIdentifier: "loginViewSegue", sender: self)
         }
         searchBar.delegate = self
-        SearchButtonAux = SearchButton
+        searchButtonAux = SearchButton
         SearchButton = navigationItem.rightBarButtonItem
+        refresher = UIRefreshControl()
+        //refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.addTarget(self, action: #selector(NewsfeedTableViewController.populateTableView), for: UIControlEvents.valueChanged)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        self.fetchPosts(origin:"0")
+        tableView.addSubview(refresher)
+        self.populateTableView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        if(!isUserLoggedIn) {
+            self.performSegue(withIdentifier: "loginViewSegue", sender: self)
+        }
     }
     
     func fetchPosts(origin:String) {
@@ -92,13 +98,37 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         } else {
             // Obtain JSON with filtered posts
         }
+        totalEnteries = posts.count
         var index = 0
         while index < limit {
             postsshowed.append(posts[index])
             index = index + 1
         }
+        refresher.endRefreshing()
     }
     
+    @objc func populateTableView() {
+        // Obtain JSON with all the posts
+        let path = Bundle.main.path(forResource: "allPosts", ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        do{
+            let data = try Data(contentsOf: url)
+            posts = try JSONDecoder().decode([Post].self, from: data)
+        }
+        catch {
+        }
+        totalEnteries = posts.count
+        postsshowed.removeAll()
+        var index = 0
+        while index < limit {
+            postsshowed.append(posts[index])
+            index = index + 1
+        }
+        self.perform(#selector(loadTable), with: nil, afterDelay: 1.0)
+        refresher.endRefreshing()
+    }
+    
+    //UISerachBarViewMethods
     func searchBarShow() {
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = UIColor.white
@@ -119,20 +149,28 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.endEditing(true)
-        navigationItem.setLeftBarButton(SearchButtonAux, animated: true)
+        navigationItem.setLeftBarButton(searchButtonAux, animated: true)
         UIView.animate(withDuration: 0.3, animations:{self.navigationItem.titleView = nil}, completion: {finished in})
     }
     
     //UITableViewMethods
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
+        indexaux = indexPath
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "ShowPostSegue", sender: cell)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPostSegue" {
+            let cell = tableView.cellForRow(at: indexaux) as! PostCell
+            let spv = segue.destination as? ShowPostViewController
+            spv?.post = cell.post
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return postsshowed.count
+        return postsshowed.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -143,16 +181,14 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == postsshowed.count - 1 {
-            // we are at last cell load more content
             if postsshowed.count < totalEnteries {
-                // we need to bring more records as there are some pending records available
                 var index = postsshowed.count
                 limit = index + 5
                 while index < limit {
                     postsshowed.append(posts[index])
                     index = index + 1
                 }
-                self.perform(#selector(loadTable), with: nil, afterDelay: 5.0)
+                self.perform(#selector(loadTable), with: nil, afterDelay: 2.0)
             }
         }
     }
@@ -163,6 +199,5 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

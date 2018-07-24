@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C2039EA20F7C43600697445 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2039E920F7C43600697445 /* CommentCell.swift */; };
 		8C37EBE520279029009427F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37EBE420279029009427F7 /* AppDelegate.swift */; };
 		8C37EBE720279029009427F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37EBE620279029009427F7 /* LoginViewController.swift */; };
 		8C37EBEA20279029009427F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBE820279029009427F7 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C2039E920F7C43600697445 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		8C37EBE120279028009427F7 /* SGE_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGE_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C37EBE420279029009427F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C37EBE620279029009427F7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -98,8 +100,9 @@
 				E27F0F4520D38A8300B787EF /* GroupsViewController.swift */,
 				8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */,
 				E26E49A720B5067A001BC8A6 /* AccountOptionTableViewCell.swift */,
-				8CC80F71202FB8AF001081D4 /* PostCell.swift */,
 				8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */,
+				8CC80F71202FB8AF001081D4 /* PostCell.swift */,
+				8C2039E920F7C43600697445 /* CommentCell.swift */,
 				E241DB6F20C62481004656AC /* subjecttest.json */,
 				8C8225DB202F8F4400A5AD89 /* allPosts.json */,
 				8C37EBEB20279029009427F7 /* Assets.xcassets */,
@@ -215,6 +218,7 @@
 				E26E49AF20B5067A001BC8A6 /* ScheduleViewController.swift in Sources */,
 				8C58B7AE20D5B2EB009BBFC6 /* ShowPostViewController.swift in Sources */,
 				E27F0F4620D38A8300B787EF /* GroupsViewController.swift in Sources */,
+				8C2039EA20F7C43600697445 /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
