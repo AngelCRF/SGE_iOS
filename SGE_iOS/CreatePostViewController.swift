@@ -11,7 +11,7 @@ import UIKit
 class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
     
     @IBOutlet weak var groupPickerView: UIPickerView!
-    let ArrayGroups = ["Grupo A", "Grupo B", "C", "F"]
+    var ArrayGroups:[String]?
     @IBOutlet weak var photoImageView: UIImageView!
     
     var writeFlag:Bool = false
@@ -53,6 +53,18 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
         self.navigationItem.title = "Post"
         self.navigationController?.navigationBar.tintColor = UIColor(hexString: "#dc9c03")
         self.tabBarController?.tabBar.isHidden = false
+        //grupos para el cual se va a hacer la publicación
+        let path = Bundle.main.path(forResource: "groupsCreatePost", ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        do{
+            let data = try Data(contentsOf: url)
+            //let myJson = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+            ArrayGroups = try JSONDecoder().decode([String].self, from: data)
+        }
+        catch {
+            
+        }
+        
         //self.toolbarBottomConstraintInitialValue = toolBarBottomConst.constant
         NotificationCenter.default.addObserver(
             self,
@@ -159,11 +171,11 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UINavigati
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return ArrayGroups[row]
+        return ArrayGroups?[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return ArrayGroups.count
+        return ArrayGroups!.count
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
