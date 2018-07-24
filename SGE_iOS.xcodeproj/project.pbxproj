@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C2039EA20F7C43600697445 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2039E920F7C43600697445 /* CommentCell.swift */; };
 		8C37EBE520279029009427F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37EBE420279029009427F7 /* AppDelegate.swift */; };
 		8C37EBE720279029009427F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37EBE620279029009427F7 /* LoginViewController.swift */; };
 		8C37EBEA20279029009427F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBE820279029009427F7 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C2039E920F7C43600697445 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		8C37EBE120279028009427F7 /* SGE_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGE_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C37EBE420279029009427F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C37EBE620279029009427F7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -83,8 +85,10 @@
 			children = (
 				E2FE275B20F1A17A001241FA /* SGE_iOS.entitlements */,
 				8C50510A20B25A220068F0E1 /* Other */,
-				8C37EBE420279029009427F7 /* AppDelegate.swift */,
+				8C37EBF020279029009427F7 /* Info.plist */,
 				8C37EBE820279029009427F7 /* Main.storyboard */,
+				8C37EBED20279029009427F7 /* LaunchScreen.storyboard */,
+				8C37EBE420279029009427F7 /* AppDelegate.swift */,
 				E26E49AA20B5067A001BC8A6 /* ScheduleViewController.swift */,
 				8C37EBE620279029009427F7 /* LoginViewController.swift */,
 				E241DB6F20C62481004656AC /* subjecttest.json */,
@@ -214,6 +218,7 @@
 				E29CFBDF203941C90009496E /* CreatePostViewController.swift in Sources */,
 				E26E49AF20B5067A001BC8A6 /* ScheduleViewController.swift in Sources */,
 				E27F0F4620D38A8300B787EF /* GroupsViewController.swift in Sources */,
+				8C2039EA20F7C43600697445 /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

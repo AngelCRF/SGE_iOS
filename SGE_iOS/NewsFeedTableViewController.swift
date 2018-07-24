@@ -10,10 +10,17 @@ import Foundation
 import UIKit
 
 class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
-    var posts: [Post]?
-    var searchBar = UISearchBar()
-    var SearchButtonAux = UIBarButtonItem()
     
+    var posts: [Post] = Array()
+    var postsshowed: [Post] = Array()
+    var limit = 5
+    var totalEnteries: Int!
+    var searchBar = UISearchBar()
+    var searchButtonAux = UIBarButtonItem()
+    var refresher: UIRefreshControl!
+    var indexaux: IndexPath!
+    
+    @IBOutlet var NewsFeedTableView: UITableView!
     @IBOutlet weak var SearchButton: UIBarButtonItem!
     
     @IBAction func ClickSearchButton(_ sender: Any) {
@@ -25,12 +32,25 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         self.navigationController?.pushViewController(createPost!, animated: true)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
-        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
-        if(!isUserLoggedIn) {
-            self.performSegue(withIdentifier: "loginViewSegue", sender: self)
-        }
+    struct Post: Decodable {
+        var id_post: String = ""
+        var createdBy: User? = nil
+        var date: String = ""
+        var group: String = ""
+        var caption: String = ""
+        var image: String? = nil
+        var comments = [Comment]()
+    }
+    
+    struct Comment: Decodable {
+        var comment: String = ""
+        var createdBy: User? = nil
+    }
+    
+    struct User: Decodable {
+        var username: String = ""
+        var profileImage: String = ""
+        var id_user: String = ""
     }
     
     override func viewDidLoad() {
@@ -39,20 +59,76 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         if(!isUserLoggedIn) {
             self.performSegue(withIdentifier: "loginViewSegue", sender: self)
         }
-        self.fetchPosts()
-        SearchButtonAux = SearchButton
+        searchBar.delegate = self
+        searchButtonAux = SearchButton
+        SearchButton = navigationItem.rightBarButtonItem
+        refresher = UIRefreshControl()
+        //refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.addTarget(self, action: #selector(NewsfeedTableViewController.populateTableView), for: UIControlEvents.valueChanged)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.tableFooterView = UIView(frame: .zero)
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        searchBar.delegate = self
-        SearchButton = navigationItem.rightBarButtonItem
+        tableView.addSubview(refresher)
+        self.populateTableView()
     }
     
-    func fetchPosts() {
-        self.posts = Post.fetchPosts()
-        tableView.reloadData()
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        if(!isUserLoggedIn) {
+            self.performSegue(withIdentifier: "loginViewSegue", sender: self)
+        }
     }
     
+    func fetchPosts(origin:String) {
+        if origin == "0" {
+            // Obtain JSON with all the posts
+            let path = Bundle.main.path(forResource: "allPosts", ofType: "json")
+            let url = URL(fileURLWithPath: path!)
+            do{
+                let data = try Data(contentsOf: url)
+                posts = try JSONDecoder().decode([Post].self, from: data)
+            }
+            catch {
+                
+            }
+        } else {
+            // Obtain JSON with filtered posts
+        }
+        totalEnteries = posts.count
+        var index = 0
+        while index < limit {
+            postsshowed.append(posts[index])
+            index = index + 1
+        }
+        refresher.endRefreshing()
+    }
+    
+    @objc func populateTableView() {
+        // Obtain JSON with all the posts
+        let path = Bundle.main.path(forResource: "allPosts", ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        do{
+            let data = try Data(contentsOf: url)
+            posts = try JSONDecoder().decode([Post].self, from: data)
+        }
+        catch {
+        }
+        totalEnteries = posts.count
+        postsshowed.removeAll()
+        var index = 0
+        while index < limit {
+            postsshowed.append(posts[index])
+            index = index + 1
+        }
+        self.perform(#selector(loadTable), with: nil, afterDelay: 1.0)
+        refresher.endRefreshing()
+    }
+    
+    //UISerachBarViewMethods
     func searchBarShow() {
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = UIColor.white
@@ -73,23 +149,55 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.endEditing(true)
-        navigationItem.setLeftBarButton(SearchButtonAux, animated: true)
+        navigationItem.setLeftBarButton(searchButtonAux, animated: true)
         UIView.animate(withDuration: 0.3, animations:{self.navigationItem.titleView = nil}, completion: {finished in})
     }
-}
-
-extension NewsfeedTableViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let posts = posts {
-            return posts.count
-        } else {
-            return 0
+    
+    //UITableViewMethods
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        indexaux = indexPath
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "ShowPostSegue", sender: cell)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPostSegue" {
+            let cell = tableView.cellForRow(at: indexaux) as! PostCell
+            let spv = segue.destination as? ShowPostViewController
+            spv?.post = cell.post
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return postsshowed.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-        cell.post = self.posts?[indexPath.row]
+        cell.post = self.postsshowed[indexPath.row]
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == postsshowed.count - 1 {
+            if postsshowed.count < totalEnteries {
+                var index = postsshowed.count
+                limit = index + 5
+                while index < limit {
+                    postsshowed.append(posts[index])
+                    index = index + 1
+                }
+                self.perform(#selector(loadTable), with: nil, afterDelay: 2.0)
+            }
+        }
+    }
+    
+    @objc func loadTable() {
+        self.tableView.reloadData()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 }

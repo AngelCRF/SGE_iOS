@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AudioToolbox
 
 class LoginViewController: UIViewController {
 
@@ -29,6 +30,7 @@ class LoginViewController: UIViewController {
             self.dismiss(animated: true, completion:nil)
         } else {
             errorLabel.text = "Error, favor de verificar los datos"
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             LoginViewController.shake(view: logoImage)
             LoginViewController.shake(view: controlNoText)
             LoginViewController.shake(view: passwordText)
@@ -49,9 +51,9 @@ class LoginViewController: UIViewController {
     
     func validateUserAndPassword(User:String, Password:String)-> Bool{
         //Function to simulate a validation this need to change to the API validation returning a bool
-        let users: [[String]] = [["13121005", "140995"], ["14121110", "123456"], ["14121167", "123456"]]
+        let users: [[String]] = [["13121005", "140995"], ["14121110", "123456"], ["14121167", "123456"],["", ""]]
         var flag = false
-        for i in 1...3 {
+        for i in 1...users.count {
             if (User == users[i-1][0] && Password == users[i-1][1]){
                 flag = true
                 break
