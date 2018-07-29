@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		8C2039EA20F7C43600697445 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2039E920F7C43600697445 /* CommentCell.swift */; };
+		8C213B3321092F9A00482869 /* members.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C213B3221092F9A00482869 /* members.json */; };
 		8C37EBE520279029009427F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37EBE420279029009427F7 /* AppDelegate.swift */; };
 		8C37EBE720279029009427F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37EBE620279029009427F7 /* LoginViewController.swift */; };
 		8C37EBEA20279029009427F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBE820279029009427F7 /* Main.storyboard */; };
 		8C37EBEC20279029009427F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBEB20279029009427F7 /* Assets.xcassets */; };
 		8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C37EBED20279029009427F7 /* LaunchScreen.storyboard */; };
+		8C58B7AE20D5B2EB009BBFC6 /* ShowPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */; };
+		8C5D14EA210A2EF9007CA334 /* MembersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5D14E9210A2EF9007CA334 /* MembersCollectionViewCell.swift */; };
+		8C5D14EC210E6C7D007CA334 /* GroupPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5D14EB210E6C7D007CA334 /* GroupPostCell.swift */; };
+		8C5D14EE210E6CFC007CA334 /* GroupFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5D14ED210E6CFC007CA334 /* GroupFeedViewController.swift */; };
+		8C8225DC202F8F4400A5AD89 /* allPosts.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C8225DB202F8F4400A5AD89 /* allPosts.json */; };
 		8CC693F720314D540049FFA5 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */; };
 		8CC80F72202FB8AF001081D4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC80F71202FB8AF001081D4 /* PostCell.swift */; };
 		E2045F4C20E2071B007919D4 /* grupos.json in Resources */ = {isa = PBXBuildFile; fileRef = E2045F4B20E2071B007919D4 /* grupos.json */; };
@@ -30,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		8C2039E920F7C43600697445 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		8C213B3221092F9A00482869 /* members.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = members.json; sourceTree = "<group>"; };
 		8C37EBE120279028009427F7 /* SGE_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGE_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C37EBE420279029009427F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C37EBE620279029009427F7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +44,11 @@
 		8C37EBEB20279029009427F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C37EBEE20279029009427F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C37EBF020279029009427F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostViewController.swift; sourceTree = "<group>"; };
+		8C5D14E9210A2EF9007CA334 /* MembersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersCollectionViewCell.swift; sourceTree = "<group>"; };
+		8C5D14EB210E6C7D007CA334 /* GroupPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPostCell.swift; sourceTree = "<group>"; };
+		8C5D14ED210E6CFC007CA334 /* GroupFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedViewController.swift; sourceTree = "<group>"; };
+		8C8225DB202F8F4400A5AD89 /* allPosts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = allPosts.json; sourceTree = "<group>"; };
 		8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
 		8CC80F71202FB8AF001081D4 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		E2045F4B20E2071B007919D4 /* grupos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grupos.json; sourceTree = "<group>"; };
@@ -49,7 +61,6 @@
 		E27F0F3F20D35DF300B787EF /* GroupsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCollectionViewCell.swift; sourceTree = "<group>"; };
 		E27F0F4520D38A8300B787EF /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		E29CFBDE203941C90009496E /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
-		E2FE275B20F1A17A001241FA /* SGE_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SGE_iOS.entitlements; sourceTree = "<group>"; };
 		E2FE275C20F1BD78001241FA /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,26 +94,30 @@
 		8C37EBE320279028009427F7 /* SGE_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				E2FE275B20F1A17A001241FA /* SGE_iOS.entitlements */,
 				8C50510A20B25A220068F0E1 /* Other */,
-				8C37EBF020279029009427F7 /* Info.plist */,
 				8C37EBE820279029009427F7 /* Main.storyboard */,
 				8C37EBED20279029009427F7 /* LaunchScreen.storyboard */,
 				8C37EBE420279029009427F7 /* AppDelegate.swift */,
 				E26E49AA20B5067A001BC8A6 /* ScheduleViewController.swift */,
 				8C37EBE620279029009427F7 /* LoginViewController.swift */,
-				E241DB6F20C62481004656AC /* subjecttest.json */,
-				E2045F4B20E2071B007919D4 /* grupos.json */,
-				8CC80F71202FB8AF001081D4 /* PostCell.swift */,
-				8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */,
-				8C37EBEB20279029009427F7 /* Assets.xcassets */,
-				8C37EBED20279029009427F7 /* LaunchScreen.storyboard */,
-				8C37EBF020279029009427F7 /* Info.plist */,
-				E23176AB2106BA6A00A7CABC /* groupsCreatePost.json */,
 				E29CFBDE203941C90009496E /* CreatePostViewController.swift */,
 				E27F0F3F20D35DF300B787EF /* GroupsCollectionViewCell.swift */,
+				8C5D14E9210A2EF9007CA334 /* MembersCollectionViewCell.swift */,
 				E27F0F4520D38A8300B787EF /* GroupsViewController.swift */,
 				E2FE275C20F1BD78001241FA /* SettingTableViewController.swift */,
+				8C58B7AD20D5B2EB009BBFC6 /* ShowPostViewController.swift */,
+				8CC693F620314D540049FFA5 /* NewsFeedTableViewController.swift */,
+				8C5D14ED210E6CFC007CA334 /* GroupFeedViewController.swift */,
+				8C5D14EB210E6C7D007CA334 /* GroupPostCell.swift */,
+				8CC80F71202FB8AF001081D4 /* PostCell.swift */,
+				8C2039E920F7C43600697445 /* CommentCell.swift */,
+				8C37EBF020279029009427F7 /* Info.plist */,
+				E2045F4B20E2071B007919D4 /* grupos.json */,
+				E23176AB2106BA6A00A7CABC /* groupsCreatePost.json */,
+				E241DB6F20C62481004656AC /* subjecttest.json */,
+				8C8225DB202F8F4400A5AD89 /* allPosts.json */,
+				8C213B3221092F9A00482869 /* members.json */,
+				8C37EBEB20279029009427F7 /* Assets.xcassets */,
 			);
 			path = SGE_iOS;
 			sourceTree = "<group>";
@@ -194,8 +209,10 @@
 				8C37EBEF20279029009427F7 /* LaunchScreen.storyboard in Resources */,
 				8C37EBEC20279029009427F7 /* Assets.xcassets in Resources */,
 				E2045F4C20E2071B007919D4 /* grupos.json in Resources */,
+				8C8225DC202F8F4400A5AD89 /* allPosts.json in Resources */,
 				E241DB7020C62481004656AC /* subjecttest.json in Resources */,
 				8C37EBEA20279029009427F7 /* Main.storyboard in Resources */,
+				8C213B3321092F9A00482869 /* members.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +223,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C5D14EE210E6CFC007CA334 /* GroupFeedViewController.swift in Sources */,
 				E2FE275D20F1BD78001241FA /* SettingTableViewController.swift in Sources */,
+				8C5D14EC210E6C7D007CA334 /* GroupPostCell.swift in Sources */,
 				E27F0F4020D35DF300B787EF /* GroupsCollectionViewCell.swift in Sources */,
 				E26E49B620B507BB001BC8A6 /* ExpandableHeaderView.swift in Sources */,
 				8C37EBE720279029009427F7 /* LoginViewController.swift in Sources */,
@@ -217,8 +236,10 @@
 				E26E49B720B507BB001BC8A6 /* ScheduleTableViewHeaderFooterView.swift in Sources */,
 				E29CFBDF203941C90009496E /* CreatePostViewController.swift in Sources */,
 				E26E49AF20B5067A001BC8A6 /* ScheduleViewController.swift in Sources */,
+				8C58B7AE20D5B2EB009BBFC6 /* ShowPostViewController.swift in Sources */,
 				E27F0F4620D38A8300B787EF /* GroupsViewController.swift in Sources */,
 				8C2039EA20F7C43600697445 /* CommentCell.swift in Sources */,
+				8C5D14EA210A2EF9007CA334 /* MembersCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,11 +383,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U4SYF6667X;
+				DEVELOPMENT_TEAM = 5CH59YRAJZ;
 				INFOPLIST_FILE = SGE_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.itmorelia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.keam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SGE_iOS/SGE_iOS-Bridging-Header.h";
@@ -383,11 +404,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U4SYF6667X;
+				DEVELOPMENT_TEAM = 5CH59YRAJZ;
 				INFOPLIST_FILE = SGE_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.itmorelia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.keam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SGE_iOS/SGE_iOS-Bridging-Header.h";

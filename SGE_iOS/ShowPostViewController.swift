@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ShowPostViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate{
+class ShowPostViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate{
     
     @IBOutlet weak var userimageImageView: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
@@ -20,7 +20,9 @@ class ShowPostViewController: UIViewController, UITextFieldDelegate, UITableView
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var CommentsTableView: UITableView!
     
+    var newImageView: UIImageView!
     var userImage: String!
+    var scrollImage: UIScrollView!
     var user: String!
     var origin: String!
     var time: String!
@@ -45,7 +47,6 @@ class ShowPostViewController: UIViewController, UITextFieldDelegate, UITableView
         NotificationCenter.default.addObserver(self, selector: #selector(keyboradWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboradWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         updateUI()
-        
         refresher = UIRefreshControl()
         //refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.addTarget(self, action: #selector(NewsfeedTableViewController.populateTableView), for: UIControlEvents.valueChanged)
@@ -164,15 +165,22 @@ class ShowPostViewController: UIViewController, UITextFieldDelegate, UITableView
     
     //Image Methods
     @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
-        let imageView = sender.view as! UIImageView
-        let newImageView = UIImageView(image: imageView.image)
+        scrollImage = UIScrollView()
+        scrollImage.delegate = self
+        scrollImage.frame = UIScreen.main.bounds
+        scrollImage.backgroundColor = .black
+        scrollImage.minimumZoomScale = 1.0
+        scrollImage.maximumZoomScale = 6.0
+        let imageView = sender.view as! UIImageView;()
+        newImageView = UIImageView(image: imageView.image)
         newImageView.frame = UIScreen.main.bounds
         newImageView.backgroundColor = .black
         newImageView.contentMode = .scaleAspectFit
         newImageView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-        newImageView.addGestureRecognizer(tap)
-        self.view.addSubview(newImageView)
+        scrollImage.addGestureRecognizer(tap)
+        self.view.addSubview(scrollImage)
+        scrollImage.addSubview(newImageView)
         self.navigationController?.isNavigationBarHidden = true
         self.tabBarController?.tabBar.isHidden = true
     }
@@ -181,5 +189,9 @@ class ShowPostViewController: UIViewController, UITextFieldDelegate, UITableView
         self.navigationController?.isNavigationBarHidden = false
         self.tabBarController?.tabBar.isHidden = false
         sender.view?.removeFromSuperview()
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return newImageView
     }
 }

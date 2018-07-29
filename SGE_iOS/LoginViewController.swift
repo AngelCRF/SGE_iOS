@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
         
         if(validateUserAndPassword(User: userNoControl!,Password: userPassword!)){
             UserDefaults.standard.set(true,forKey:"isUserLoggedIn")
+            UserDefaults.standard.set(userNoControl!,forKey:"loggedUser")
             UserDefaults.standard.synchronize()
             errorLabel.text = ""
             self.dismiss(animated: true, completion:nil)

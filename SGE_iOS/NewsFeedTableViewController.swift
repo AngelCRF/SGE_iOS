@@ -19,8 +19,8 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
     var searchButtonAux = UIBarButtonItem()
     var refresher: UIRefreshControl!
     var indexaux: IndexPath!
-    
-    @IBOutlet var NewsFeedTableView: UITableView!
+    var group: String!
+
     @IBOutlet weak var SearchButton: UIBarButtonItem!
     
     @IBAction func ClickSearchButton(_ sender: Any) {
@@ -62,8 +62,8 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         searchBar.delegate = self
         searchButtonAux = SearchButton
         SearchButton = navigationItem.rightBarButtonItem
+        navigationItem.title = "Noticias"
         refresher = UIRefreshControl()
-        //refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.addTarget(self, action: #selector(NewsfeedTableViewController.populateTableView), for: UIControlEvents.valueChanged)
         tableView.dataSource = self
         tableView.delegate = self
@@ -83,49 +83,12 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         }
     }
     
-    func fetchPosts(origin:String) {
-        if origin == "0" {
-            // Obtain JSON with all the posts
-            let path = Bundle.main.path(forResource: "allPosts", ofType: "json")
-            let url = URL(fileURLWithPath: path!)
-            do{
-                let data = try Data(contentsOf: url)
-                posts = try JSONDecoder().decode([Post].self, from: data)
-            }
-            catch {
-                
-            }
-        } else {
-            // Obtain JSON with filtered posts
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPostSegue" {
+            let cell = tableView.cellForRow(at: indexaux) as! PostCell
+            let spv = segue.destination as? ShowPostViewController
+            spv?.post = cell.post
         }
-        totalEnteries = posts.count
-        var index = 0
-        while index < limit {
-            postsshowed.append(posts[index])
-            index = index + 1
-        }
-        refresher.endRefreshing()
-    }
-    
-    @objc func populateTableView() {
-        // Obtain JSON with all the posts
-        let path = Bundle.main.path(forResource: "allPosts", ofType: "json")
-        let url = URL(fileURLWithPath: path!)
-        do{
-            let data = try Data(contentsOf: url)
-            posts = try JSONDecoder().decode([Post].self, from: data)
-        }
-        catch {
-        }
-        totalEnteries = posts.count
-        postsshowed.removeAll()
-        var index = 0
-        while index < limit {
-            postsshowed.append(posts[index])
-            index = index + 1
-        }
-        self.perform(#selector(loadTable), with: nil, afterDelay: 1.0)
-        refresher.endRefreshing()
     }
     
     //UISerachBarViewMethods
@@ -137,6 +100,7 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         searchBar.searchBarStyle = UISearchBarStyle.minimal
         searchBar.alpha = 0
         searchBar.showsCancelButton = true
+        navigationItem.title = nil
         navigationItem.titleView = searchBar
         navigationItem.setLeftBarButton(nil, animated: true)
         UIView.animate(withDuration: 0.5, animations: {self.searchBar.alpha = 1}, completion: {finished in self.searchBar.becomeFirstResponder()})
@@ -150,6 +114,7 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         searchBar.text = ""
         searchBar.endEditing(true)
         navigationItem.setLeftBarButton(searchButtonAux, animated: true)
+        navigationItem.title = "Noticias"
         UIView.animate(withDuration: 0.3, animations:{self.navigationItem.titleView = nil}, completion: {finished in})
     }
     
@@ -159,14 +124,6 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         indexaux = indexPath
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "ShowPostSegue", sender: cell)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowPostSegue" {
-            let cell = tableView.cellForRow(at: indexaux) as! PostCell
-            let spv = segue.destination as? ShowPostViewController
-            spv?.post = cell.post
-        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -191,6 +148,27 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
                 self.perform(#selector(loadTable), with: nil, afterDelay: 2.0)
             }
         }
+    }
+    
+    @objc func populateTableView() {
+        // Obtain JSON with all the posts
+        let path = Bundle.main.path(forResource: "allPosts", ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        do{
+            let data = try Data(contentsOf: url)
+            posts = try JSONDecoder().decode([Post].self, from: data)
+        }
+        catch {
+        }
+        totalEnteries = posts.count
+        postsshowed.removeAll()
+        var index = 0
+        while index < limit {
+            postsshowed.append(posts[index])
+            index = index + 1
+        }
+        self.perform(#selector(loadTable), with: nil, afterDelay: 1.0)
+        refresher.endRefreshing()
     }
     
     @objc func loadTable() {

@@ -69,6 +69,12 @@ class GroupsViewController: UIViewController, UICollectionViewDelegate, UICollec
         let num = Int(arc4random_uniform(UInt32(colors.count)))
         return num
     }
-
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowGroupPosts" {
+            let nftvc = segue.destination as? NewsfeedTableViewController
+            nftvc?.group = "idGrupo"
+        }
+    }
+    
 }

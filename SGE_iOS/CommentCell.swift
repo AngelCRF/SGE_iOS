@@ -21,7 +21,6 @@ class CommentCell: UITableViewCell {
         }
     }
     
-    
     func updateUI(){
         let data = try? Data(contentsOf: URL(string:(comment.createdBy?.profileImage)!)!)
         if let imageData = data {
