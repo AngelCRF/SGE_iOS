@@ -59,6 +59,19 @@ class GroupsViewController: UIViewController, UICollectionViewDelegate, UICollec
         // Do any additional setup after loading the view.
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //groupobj
+        self.performSegue(withIdentifier: "ShowGroupPosts", sender: groups?[indexPath.item])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "ShowGroupPosts") {
+            let secondViewController = segue.destination as! GroupFeedViewController
+            let groupobj = sender as! group
+            secondViewController.groupobj = groupobj
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

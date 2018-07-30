@@ -1081,7 +1081,6 @@
                                             <outlet property="capitalLetter" destination="XC0-X0-ZbE" id="SaH-Do-8Jq"/>
                                             <outlet property="name" destination="Kx5-Zg-XXo" id="FFy-lH-MR9"/>
                                             <outlet property="view" destination="KU1-ZM-LXq" id="Vsu-2R-h3V"/>
-                                            <segue destination="xI8-42-aSv" kind="show" identifier="ShowGroupPosts" id="kgb-g3-c71"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1100,6 +1099,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bb2-EI-foV"/>
+                    <connections>
+                        <segue destination="xI8-42-aSv" kind="show" identifier="ShowGroupPosts" id="vgN-6q-sv2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vP-fj-dZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
