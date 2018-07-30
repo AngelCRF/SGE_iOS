@@ -9,23 +9,23 @@
 import Foundation
 import UIKit
 
-class GroupFeedViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
+class GroupFeedViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource{
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
     var posts: [NewsfeedTableViewController.Post] = Array()
     var postsshowed: [NewsfeedTableViewController.Post] = Array()
+    var members: [NewsfeedTableViewController.User] = Array()
     var limit = 5
     var totalEnteries: Int!
     var refresher: UIRefreshControl!
-    var indexaux: IndexPath!
     var groupobj: group!
-    var members: [NewsfeedTableViewController.User] = Array()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navigationItem.title = groupobj.getName()
+        self.navigationController?.navigationBar.tintColor = UIColor(hexString: "#dc9c03")
+        navigationItem.title = groupobj.getName()
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(GroupFeedViewController.populateViews), for: UIControlEvents.valueChanged)
         tableView.dataSource = self
@@ -45,8 +45,8 @@ class GroupFeedViewController : UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowPostSegue" {
-            let cell = tableView.cellForRow(at: indexaux) as! PostCell
+        if segue.identifier == "ShowPostSegueG" {
+            let cell = sender as! GroupPostCell
             let spv = segue.destination as? ShowPostViewController
             spv?.post = cell.post
         }
@@ -111,9 +111,8 @@ class GroupFeedViewController : UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        indexaux = indexPath
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "ShowPostSegue", sender: cell)
+        performSegue(withIdentifier: "ShowPostSegueG", sender: cell)
     }
     
     @objc func loadTable() {

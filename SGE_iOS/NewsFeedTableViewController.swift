@@ -18,9 +18,8 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
     var searchBar = UISearchBar()
     var searchButtonAux = UIBarButtonItem()
     var refresher: UIRefreshControl!
-    var indexaux: IndexPath!
     var group: String!
-
+    
     @IBOutlet weak var SearchButton: UIBarButtonItem!
     
     @IBAction func ClickSearchButton(_ sender: Any) {
@@ -85,7 +84,7 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowPostSegue" {
-            let cell = tableView.cellForRow(at: indexaux) as! PostCell
+            let cell = sender as! PostCell
             let spv = segue.destination as? ShowPostViewController
             spv?.post = cell.post
         }
@@ -121,7 +120,6 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
     //UITableViewMethods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        indexaux = indexPath
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "ShowPostSegue", sender: cell)
     }

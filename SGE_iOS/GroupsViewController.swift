@@ -40,7 +40,6 @@ class GroupsViewController: UIViewController, UICollectionViewDelegate, UICollec
         return cell
     }
     
-
     var groups:[group]?
     let colors = [UIColor.init(hexString: "#dddbf1"), UIColor.init(hexString: "#e0ecfa"), UIColor.init(hexString: "#eeecf2"), UIColor.init(hexString: "#c9eaf6"), UIColor.init(hexString: "#cec9e8"), UIColor.init(hexString: "#e1ebc4"), UIColor.init(hexString: "#f1eee3"), UIColor.init(hexString: "#f9e8c9")]
     
@@ -69,12 +68,4 @@ class GroupsViewController: UIViewController, UICollectionViewDelegate, UICollec
         let num = Int(arc4random_uniform(UInt32(colors.count)))
         return num
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowGroupPosts" {
-            let nftvc = segue.destination as? NewsfeedTableViewController
-            nftvc?.group = "idGrupo"
-        }
-    }
-    
 }
