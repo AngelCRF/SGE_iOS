@@ -115,7 +115,7 @@
         <scene sceneID="FBz-t6-4mV">
             <objects>
                 <tableViewController title="Noticias" id="FX0-1V-bk9" customClass="NewsfeedTableViewController" customModule="SGE_iOS" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="250" sectionHeaderHeight="5" estimatedSectionHeaderHeight="5" sectionFooterHeight="10" estimatedSectionFooterHeight="10" id="yGR-74-fev">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="250" sectionHeaderHeight="1" sectionFooterHeight="1" id="yGR-74-fev">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -677,7 +677,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="250" sectionHeaderHeight="5" estimatedSectionHeaderHeight="5" sectionFooterHeight="10" estimatedSectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yhp-8K-QbW">
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="250" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Yhp-8K-QbW">
                                 <rect key="frame" x="0.0" y="122" width="375" height="496"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -822,7 +822,7 @@
                         <viewControllerLayoutGuide type="bottom" id="bcU-VQ-bhF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HSf-t5-ffL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hB8-SZ-jvq">
@@ -971,6 +971,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xA-aQ-rHp">
+                                <rect key="frame" x="342" y="447" width="23" height="23"/>
+                                <color key="tintColor" red="0.86274509799999999" green="0.61176470589999998" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="send"/>
+                                <connections>
+                                    <action selector="sendButtonAction:" destination="K1f-ZZ-X04" eventType="touchUpInside" id="qgW-fb-qAp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -979,11 +987,14 @@
                             <constraint firstAttribute="trailing" secondItem="hB8-SZ-jvq" secondAttribute="trailing" constant="5" id="T9r-7Y-GsO"/>
                             <constraint firstItem="bcU-VQ-bhF" firstAttribute="top" secondItem="4jH-fP-1TV" secondAttribute="bottom" constant="8" id="dYZ-dN-WJy"/>
                             <constraint firstItem="hB8-SZ-jvq" firstAttribute="leading" secondItem="HSf-t5-ffL" secondAttribute="leading" constant="5" id="doh-em-Vy5"/>
+                            <constraint firstItem="7xA-aQ-rHp" firstAttribute="leading" secondItem="bXP-nb-9xK" secondAttribute="trailing" constant="-28" id="gk4-cM-7TK"/>
                             <constraint firstItem="bXP-nb-9xK" firstAttribute="leading" secondItem="HSf-t5-ffL" secondAttribute="leading" constant="5" id="hRl-B8-awE"/>
+                            <constraint firstItem="7xA-aQ-rHp" firstAttribute="top" secondItem="hB8-SZ-jvq" secondAttribute="bottom" constant="8" id="jbC-Jx-1A3"/>
                             <constraint firstItem="4jH-fP-1TV" firstAttribute="leading" secondItem="HSf-t5-ffL" secondAttribute="leading" constant="5" id="p7a-x6-BPr"/>
                             <constraint firstItem="4jH-fP-1TV" firstAttribute="top" secondItem="bXP-nb-9xK" secondAttribute="bottom" constant="4" id="pdr-0g-fHB"/>
+                            <constraint firstItem="4jH-fP-1TV" firstAttribute="top" secondItem="7xA-aQ-rHp" secondAttribute="bottom" constant="7" id="ra4-Da-HfF"/>
                             <constraint firstItem="bXP-nb-9xK" firstAttribute="top" secondItem="hB8-SZ-jvq" secondAttribute="bottom" constant="4" id="sAe-il-6iJ"/>
-                            <constraint firstAttribute="trailing" secondItem="bXP-nb-9xK" secondAttribute="trailing" constant="5" id="yig-9j-49G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7xA-aQ-rHp" secondAttribute="trailing" constant="-6" id="zdu-kf-D0T"/>
                             <constraint firstItem="bcU-VQ-bhF" firstAttribute="top" secondItem="hB8-SZ-jvq" secondAttribute="bottom" constant="179" id="zuT-ZI-Zk5"/>
                         </constraints>
                     </view>
@@ -993,6 +1004,7 @@
                         <outlet property="commentTextField" destination="bXP-nb-9xK" id="jA4-xg-bCL"/>
                         <outlet property="imagePostImageView" destination="xPv-I2-DZl" id="bsN-s4-XWw"/>
                         <outlet property="originLabel" destination="KWt-V3-JJ3" id="rKM-aL-KAz"/>
+                        <outlet property="sendButton" destination="7xA-aQ-rHp" id="Iif-gM-hgm"/>
                         <outlet property="timeLabel" destination="UaP-YN-TYl" id="nZP-yS-47I"/>
                         <outlet property="userLabel" destination="SRZ-21-A60" id="8Ex-zH-5ue"/>
                         <outlet property="userimageImageView" destination="I0j-RH-Ogk" id="Vgs-TB-Ud9"/>
@@ -1005,7 +1017,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3286" y="43"/>
+            <point key="canvasLocation" x="3285.5999999999999" y="42.728635682158924"/>
         </scene>
         <!--Grupos-->
         <scene sceneID="brD-Id-FDw">
@@ -1154,9 +1166,10 @@
         <image name="logout" width="512" height="512"/>
         <image name="pony" width="227" height="292"/>
         <image name="profilePic" width="722" height="722"/>
+        <image name="send" width="23" height="23"/>
         <image name="settings" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="28X-00-N67"/>
+        <segue reference="zI1-6B-ezb"/>
     </inferredMetricsTieBreakers>
 </document>
