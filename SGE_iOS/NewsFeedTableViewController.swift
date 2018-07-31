@@ -90,6 +90,10 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
         }
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     //UISerachBarViewMethods
     func searchBarShow() {
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
@@ -171,9 +175,5 @@ class NewsfeedTableViewController : UITableViewController, UISearchBarDelegate {
     
     @objc func loadTable() {
         self.tableView.reloadData()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }

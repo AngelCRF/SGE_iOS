@@ -19,6 +19,7 @@ class ShowPostViewController: UIViewController, UITextFieldDelegate, UITableView
     @IBOutlet weak var imagePostImageView: UIImageView!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var CommentsTableView: UITableView!
+    @IBOutlet weak var sendButton: UIButton!
     
     var newImageView: UIImageView!
     var userImage: String!
@@ -48,7 +49,6 @@ class ShowPostViewController: UIViewController, UITextFieldDelegate, UITableView
         NotificationCenter.default.addObserver(self, selector: #selector(keyboradWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         updateUI()
         refresher = UIRefreshControl()
-        //refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.addTarget(self, action: #selector(NewsfeedTableViewController.populateTableView), for: UIControlEvents.valueChanged)
         CommentsTableView.dataSource = self
         CommentsTableView.delegate = self
@@ -67,13 +67,15 @@ class ShowPostViewController: UIViewController, UITextFieldDelegate, UITableView
         refresher.endRefreshing()
     }
     
+    @IBAction func sendButtonAction(_ sender: Any) {
+    }
+    
     func updateUI(){
         if let url = URL(string: (post.createdBy?.profileImage)!) {
             downloadImage(url: url)
         } else {
             userimageImageView.image = #imageLiteral(resourceName: "pony")
         }
-        //PostidLabel.text=post.id_post
         userLabel.text = post.createdBy?.username
         timeLabel.text = post.date
         originLabel.text = post.group
@@ -85,11 +87,11 @@ class ShowPostViewController: UIViewController, UITextFieldDelegate, UITableView
             imagePostImageView.image = nil
             imagePostImageView.frame.size.height = 1.0
         }
-        //NCommentsLabel.text = "\(post.comments.count) Comments"
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         hideKeyboard()
+        sendButton.isHidden = true
         return true
     }
     
@@ -110,7 +112,7 @@ class ShowPostViewController: UIViewController, UITextFieldDelegate, UITableView
         }
         if notification.name==Notification.Name.UIKeyboardWillShow || notification.name==Notification.Name.UIKeyboardWillChangeFrame {
             view.frame.origin.y = -keyboardRect.height+250
-            //Edit textFieldView style
+            sendButton.isHidden = false
         } else {
             view.frame.origin.y = +63
         }
