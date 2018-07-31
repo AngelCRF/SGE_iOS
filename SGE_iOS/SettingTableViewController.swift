@@ -14,19 +14,37 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var dayLabel: UILabel!
+    
+    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+            }.resume()
+    }
+    
+    func downloadImage(url: URL) {
+        getDataFromUrl(url: url) { data, response, error in guard let data = data, error == nil else { return }
+            DispatchQueue.main.async() {
+                self.profileImage.image = UIImage(data: data)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         profileImage.layer.masksToBounds = true
         profileImage.layer.cornerRadius = 30
         
-        /*
-         Obtener imagen de URL y Nombre del alumno.
-        userName.text = ""
-         userSemester.text = "semester: \(variable)"
-         NSString *ImageURL = @"http://www.leadershipgeeks.com/wp-content/uploads/stevejobs-239x300.jpg";
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:ImageURL]];
-        profileImage.image = [UIImage imageWithData:imageData];
-        */
+        
+        let id = UserDefaults.standard.string(forKey: "loggedUser")
+        //Obtener imagen de URL y Nombre del alumno.
+        if let url = URL(string:"https://sge.morelia.tecnm.mx/storage/data/alumnos/\(String(describing: id))/foto.jpg") {
+            downloadImage(url: url)
+            } else {
+            profileImage.image = #imageLiteral(resourceName: "pony")
+        }
+        
+        //userName.text = ******nombre de usuario con id ******
+        
         
         let date = Date()
         let formatter = DateFormatter()
